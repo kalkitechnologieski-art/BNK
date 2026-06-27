@@ -2,13 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes" />
-    <title>BNKJSS · AstroSeva </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>BNKJSS · AstroSeva</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,700&family=Inter:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,500&display=swap" rel="stylesheet" />
     <style>
-        /* ===== RESET & BASE ===== */
+        /* ============================================================
+                   RESET & ROOT – MOBILE-FIRST LUXURY
+                   ============================================================ */
         *,
         *::before,
         *::after {
@@ -16,253 +18,193 @@
             margin: 0;
             padding: 0;
         }
+
         :root {
-            --primary: #F97316;
-            --primary-dark: #D97706;
-            --primary-light: #FB923C;
-            --primary-glow: rgba(249, 115, 22, 0.35);
             --gold: #D4AF37;
             --gold-light: #FDE68A;
-            --gold-glow: rgba(212, 175, 55, 0.4);
+            --gold-glow: rgba(212, 175, 55, 0.35);
+            --gold-subtle: rgba(212, 175, 55, 0.10);
+            --primary: #F97316;
+            --primary-dark: #D97706;
+            --primary-glow: rgba(249, 115, 22, 0.25);
             --maroon: #450A0A;
-            --maroon-muted: #7A1F1F;
+            --maroon-muted: #6B1A1A;
+            --maroon-glow: rgba(69, 10, 10, 0.15);
             --cream: #FBF3EA;
             --parchment: #FFF8ED;
             --surface: #FFFFFF;
             --text-primary: #1C0E07;
             --text-secondary: #5B3A29;
             --text-muted: #8B7355;
-            --shadow-sm: 0 4px 20px rgba(69, 10, 10, 0.08);
-            --shadow-md: 0 12px 48px rgba(69, 10, 10, 0.12);
-            --shadow-lg: 0 24px 64px rgba(69, 10, 10, 0.18);
-            --shadow-gold: 0 0 40px rgba(212, 175, 55, 0.25);
-            --radius: 20px;
-            --radius-sm: 12px;
-            --radius-xs: 8px;
-            --transition: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --radius: 16px;
+            --radius-sm: 10px;
+            --radius-xs: 6px;
+            --shadow-sm: 0 2px 12px rgba(69, 10, 10, 0.06);
+            --shadow-md: 0 8px 32px rgba(69, 10, 10, 0.10);
+            --shadow-lg: 0 20px 60px rgba(69, 10, 10, 0.16);
+            --shadow-gold: 0 0 40px rgba(212, 175, 55, 0.20);
+            --transition: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             --font-serif: 'Playfair Display', 'Georgia', serif;
             --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             --font-accent: 'Cormorant Garamond', 'Georgia', serif;
+            --safe-top: env(safe-area-inset-top, 12px);
+            --safe-bottom: env(safe-area-inset-bottom, 12px);
         }
+
         html {
             scroll-behavior: smooth;
             -webkit-tap-highlight-color: transparent;
         }
+
         body {
             font-family: var(--font-body);
             background: var(--cream);
             color: var(--text-primary);
             min-height: 100vh;
             min-height: 100dvh;
-            padding: 16px;
-            background-image: radial-gradient(circle at 20% 30%, rgba(249, 115, 22, 0.06) 0%, transparent 65%),
-                radial-gradient(circle at 80% 70%, rgba(212, 175, 55, 0.05) 0%, transparent 50%);
+            padding: 12px 12px var(--safe-bottom);
+            background-image: radial-gradient(circle at 15% 20%, rgba(249, 115, 22, 0.05) 0%, transparent 60%),
+                radial-gradient(circle at 85% 80%, rgba(212, 175, 55, 0.04) 0%, transparent 50%);
             background-attachment: fixed;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
-        }
-        /* ===== SCROLLBAR ===== */
-        ::-webkit-scrollbar {
-            width: 6px;
-            height: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--cream);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: var(--gold);
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--primary);
+            overflow-x: hidden;
         }
 
-        /* ===== CONTAINER ===== */
-        .dashboard {
-            max-width: 1280px;
+        /* ============================================================
+                   SCROLLBAR – HIDE FOR MOBILE
+                   ============================================================ */
+        ::-webkit-scrollbar {
+            width: 0;
+            height: 0;
+            background: transparent;
+        }
+
+        /* ============================================================
+                   MAIN CONTAINER – CARD STACK
+                   ============================================================ */
+        .app-container {
+            max-width: 480px;
             width: 100%;
             margin: 0 auto;
-            background: var(--surface);
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-lg), var(--shadow-gold);
-            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            padding-bottom: 8px;
             position: relative;
-            backdrop-filter: blur(2px);
-            border: 1px solid rgba(212, 175, 55, 0.15);
-        }
-        /* subtle mandala pattern overlay */
-        .dashboard::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            pointer-events: none;
-            opacity: 0.025;
-            background-image: radial-gradient(circle at 20% 30%, var(--gold) 1px, transparent 1px),
-                radial-gradient(circle at 80% 70%, var(--gold) 1px, transparent 1px);
-            background-size: 60px 60px, 80px 80px;
-            z-index: 0;
-        }
-        .dashboard-inner {
-            position: relative;
-            z-index: 1;
-            padding: 20px 24px 32px;
-        }
-        @media (max-width: 768px) {
-            body {
-                padding: 8px;
-            }
-            .dashboard-inner {
-                padding: 14px 14px 24px;
-            }
-        }
-        @media (max-width: 480px) {
-            .dashboard-inner {
-                padding: 10px 10px 20px;
-            }
         }
 
-        /* ===== HEADER ===== */
-        .header {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
-            padding-bottom: 18px;
-            border-bottom: 2px solid rgba(212, 175, 55, 0.2);
-            margin-bottom: 22px;
-            gap: 12px;
-        }
-        .header-brand {
-            display: flex;
-            align-items: baseline;
-            flex-wrap: wrap;
-            gap: 4px 10px;
-        }
-        .header-brand h1 {
-            font-family: var(--font-serif);
-            font-weight: 900;
-            font-size: clamp(1.4rem, 4vw, 2.2rem);
-            color: var(--maroon);
-            letter-spacing: -0.02em;
-            line-height: 1.1;
-        }
-        .header-brand h1 span {
-            color: var(--primary);
-        }
-        .header-brand .sub {
-            font-family: var(--font-accent);
-            font-weight: 600;
-            font-size: clamp(0.7rem, 1.4vw, 0.95rem);
-            color: var(--gold);
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            background: rgba(212, 175, 55, 0.12);
-            padding: 2px 14px;
-            border-radius: 40px;
-            border: 1px solid rgba(212, 175, 55, 0.2);
-        }
-        .header-meta {
-            display: flex;
-            align-items: center;
-            gap: 10px 16px;
-            flex-wrap: wrap;
-        }
-        .header-meta .badge {
-            font-size: clamp(0.65rem, 1vw, 0.8rem);
-            font-weight: 600;
-            background: var(--surface);
-            padding: 6px 16px;
-            border-radius: 40px;
-            box-shadow: var(--shadow-sm);
-            border: 1px solid rgba(212, 175, 55, 0.15);
-            color: var(--text-secondary);
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .header-meta .badge .icon {
-            font-size: 1.1em;
-        }
-        @media (max-width: 600px) {
-            .header {
-                flex-direction: column;
-                align-items: stretch;
-                gap: 8px;
-            }
-            .header-meta {
-                justify-content: flex-start;
-            }
-        }
-
-        /* ===== MAIN GRID ===== */
-        .grid-main {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-        }
-        @media (min-width: 820px) {
-            .grid-main {
-                grid-template-columns: 270px 1fr 270px;
-            }
-        }
-        @media (min-width: 1024px) {
-            .grid-main {
-                grid-template-columns: 280px 1fr 280px;
-            }
-        }
-        @media (max-width: 819px) {
-            .grid-main {
-                grid-template-columns: 1fr;
-                gap: 18px;
-            }
-        }
-
-        /* ===== CARDS ===== */
+        /* ============================================================
+                   CARD BASE – LUXURY SURFACE
+                   ============================================================ */
         .card {
             background: var(--surface);
-            border-radius: var(--radius-sm);
-            box-shadow: var(--shadow-sm);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm), inset 0 1px 0 rgba(255, 255, 255, 0.8);
             border: 1px solid rgba(212, 175, 55, 0.10);
-            padding: 18px 18px 20px;
+            padding: 16px 18px 18px;
             transition: box-shadow var(--transition), transform var(--transition);
             position: relative;
             overflow: hidden;
         }
-        .card:hover {
-            box-shadow: var(--shadow-md);
+        .card:active {
+            transform: scale(0.995);
         }
+        .card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            opacity: 0.3;
+        }
+
         .card-title {
             font-family: var(--font-serif);
             font-weight: 700;
-            font-size: clamp(1rem, 1.6vw, 1.25rem);
+            font-size: 1.05rem;
             color: var(--maroon);
             display: flex;
             align-items: center;
-            gap: 10px;
-            margin-bottom: 14px;
+            gap: 8px;
+            margin-bottom: 12px;
             padding-bottom: 10px;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.12);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.10);
         }
         .card-title .emoji {
-            font-size: 1.2em;
+            font-size: 1.15em;
         }
 
-        /* ===== CALENDAR ===== */
+        /* ============================================================
+                   HEADER – BRAND + STATUS
+                   ============================================================ */
+        .app-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 4px 0 6px;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .app-header .brand {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+        .app-header .brand h1 {
+            font-family: var(--font-serif);
+            font-weight: 900;
+            font-size: 1.3rem;
+            color: var(--maroon);
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+        .app-header .brand h1 span {
+            color: var(--primary);
+        }
+        .app-header .brand .badge {
+            font-family: var(--font-accent);
+            font-weight: 600;
+            font-size: 0.6rem;
+            color: var(--gold);
+            background: rgba(212, 175, 55, 0.12);
+            padding: 1px 10px;
+            border-radius: 40px;
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+        .app-header .date-badge {
+            font-size: 0.6rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            background: var(--cream);
+            padding: 4px 12px;
+            border-radius: 40px;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            white-space: nowrap;
+        }
+
+        /* ============================================================
+                   COSMIC CALENDAR – COMPACT GRID
+                   ============================================================ */
         .calendar-grid {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
-            gap: 4px;
+            gap: 3px;
             text-align: center;
-            font-size: clamp(0.7rem, 1.1vw, 0.85rem);
         }
         .calendar-grid .day-label {
             font-weight: 700;
             color: var(--text-muted);
-            font-size: 0.65rem;
+            font-size: 0.5rem;
             text-transform: uppercase;
-            letter-spacing: 0.06em;
-            padding-bottom: 6px;
+            letter-spacing: 0.08em;
+            padding-bottom: 4px;
         }
         .calendar-cell {
             aspect-ratio: 1 / 1;
@@ -271,7 +213,7 @@
             justify-content: center;
             border-radius: 50%;
             font-weight: 600;
-            font-size: clamp(0.7rem, 1vw, 0.85rem);
+            font-size: 0.7rem;
             cursor: pointer;
             transition: all var(--transition);
             background: var(--cream);
@@ -279,10 +221,11 @@
             border: 2px solid transparent;
             position: relative;
             user-select: none;
+            touch-action: manipulation;
+            min-height: 32px;
         }
-        .calendar-cell:hover {
-            transform: scale(1.05);
-            z-index: 2;
+        .calendar-cell:active {
+            transform: scale(0.92);
         }
         .calendar-cell.empty {
             background: transparent !important;
@@ -291,25 +234,16 @@
         }
         .calendar-cell.selected {
             border-color: var(--maroon);
-            box-shadow: 0 0 0 4px rgba(69, 10, 10, 0.15), var(--shadow-sm);
+            box-shadow: 0 0 0 3px rgba(69, 10, 10, 0.12), var(--shadow-sm);
             transform: scale(1.08);
-            z-index: 3;
+            z-index: 2;
             font-weight: 800;
         }
         .calendar-cell.guru {
             border-color: var(--gold);
-            box-shadow: 0 0 0 3px var(--gold-glow), 0 0 20px var(--gold-glow);
+            box-shadow: 0 0 0 3px var(--gold-glow), 0 0 16px var(--gold-glow);
         }
-        .calendar-cell .dot {
-            position: absolute;
-            bottom: 3px;
-            width: 5px;
-            height: 5px;
-            border-radius: 50%;
-            background: var(--gold);
-            opacity: 0.6;
-        }
-        /* traffic colors */
+        /* traffic colors – subtle mobile */
         .traffic-low {
             background: #f3ede8;
             color: var(--text-muted);
@@ -330,62 +264,62 @@
             background: var(--gold);
             color: var(--maroon);
             font-weight: 800;
-            animation: pulse-gold 2s infinite;
+            animation: pulse-gold-mobile 2s infinite;
         }
-        @keyframes pulse-gold {
+        @keyframes pulse-gold-mobile {
             0%,
             100% {
                 box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4);
             }
             50% {
-                box-shadow: 0 0 0 8px rgba(212, 175, 55, 0);
+                box-shadow: 0 0 0 6px rgba(212, 175, 55, 0);
             }
         }
 
         .calendar-legend {
             display: flex;
             flex-wrap: wrap;
-            gap: 6px 14px;
-            margin-top: 14px;
-            padding-top: 12px;
+            gap: 4px 12px;
+            margin-top: 10px;
+            padding-top: 10px;
             border-top: 1px solid rgba(0, 0, 0, 0.04);
-            font-size: 0.65rem;
+            font-size: 0.55rem;
             color: var(--text-muted);
         }
         .calendar-legend .leg-item {
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 4px;
         }
         .calendar-legend .swatch {
-            width: 14px;
-            height: 14px;
+            width: 12px;
+            height: 12px;
             border-radius: 4px;
             border: 1px solid rgba(0, 0, 0, 0.06);
+            flex-shrink: 0;
         }
 
-        /* ===== HERO CARD (Today's Dispatch) ===== */
+        /* ============================================================
+                   HERO CARD – PREMIUM GRADIENT
+                   ============================================================ */
         .hero-card {
             background: linear-gradient(145deg, var(--primary), var(--primary-dark));
-            border-radius: var(--radius-sm);
-            padding: 22px 24px 24px;
+            border-radius: var(--radius);
+            padding: 18px 18px 20px;
             color: #fff;
-            box-shadow: 0 12px 40px rgba(249, 115, 22, 0.3);
+            box-shadow: 0 8px 32px rgba(249, 115, 22, 0.30), var(--shadow-gold);
             position: relative;
             overflow: hidden;
-            min-height: 240px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            border: none;
         }
         .hero-card::after {
             content: '';
             position: absolute;
-            top: -60%;
+            top: -40%;
             right: -20%;
             width: 60%;
-            height: 150%;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+            height: 120%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.07) 0%, transparent 70%);
             border-radius: 50%;
             pointer-events: none;
         }
@@ -393,28 +327,28 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
-            align-items: flex-start;
-            gap: 8px 12px;
+            align-items: center;
+            gap: 4px 8px;
             position: relative;
             z-index: 1;
         }
         .hero-card .hero-tag {
-            background: rgba(0, 0, 0, 0.2);
+            background: rgba(0, 0, 0, 0.20);
             backdrop-filter: blur(4px);
-            padding: 3px 14px;
+            padding: 2px 12px;
             border-radius: 40px;
-            font-size: 0.7rem;
+            font-size: 0.6rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.06em;
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.10);
         }
         .hero-card .hero-theme {
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.12);
             backdrop-filter: blur(4px);
-            padding: 3px 14px;
+            padding: 2px 12px;
             border-radius: 40px;
-            font-size: 0.65rem;
+            font-size: 0.55rem;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.04em;
@@ -422,20 +356,20 @@
         .hero-card .hero-event {
             font-family: var(--font-serif);
             font-weight: 700;
-            font-size: clamp(1.2rem, 2.6vw, 1.8rem);
-            margin: 10px 0 6px;
+            font-size: 1.15rem;
+            margin: 8px 0 4px;
             line-height: 1.2;
             position: relative;
             z-index: 1;
         }
         .hero-card .hero-strategy {
-            font-size: clamp(0.85rem, 1.3vw, 1.05rem);
+            font-size: 0.8rem;
             font-weight: 400;
             opacity: 0.92;
             line-height: 1.5;
             border-left: 3px solid var(--gold-light);
-            padding-left: 14px;
-            margin: 4px 0 16px;
+            padding-left: 12px;
+            margin: 2px 0 14px;
             position: relative;
             z-index: 1;
             font-family: var(--font-accent);
@@ -445,55 +379,55 @@
             background: rgba(0, 0, 0, 0.12);
             backdrop-filter: blur(4px);
             border-radius: var(--radius-xs);
-            padding: 12px 14px;
+            padding: 10px 12px;
             position: relative;
             z-index: 1;
-            margin-top: 4px;
         }
         .hero-card .hero-keywords .kw-label {
-            font-size: 0.6rem;
+            font-size: 0.5rem;
             text-transform: uppercase;
             letter-spacing: 0.08em;
             opacity: 0.7;
             font-weight: 700;
             display: flex;
             align-items: center;
-            gap: 8px;
-            margin-bottom: 8px;
+            gap: 6px;
+            margin-bottom: 6px;
         }
         .hero-card .hero-keywords .kw-label .spark {
             color: var(--gold-light);
+            font-size: 0.7rem;
         }
         .hero-kw-item {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 5px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-            gap: 8px;
+            padding: 4px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            gap: 6px;
         }
         .hero-kw-item:last-child {
             border-bottom: 0;
         }
         .hero-kw-item .kw-name {
-            font-size: clamp(0.7rem, 0.9vw, 0.85rem);
+            font-size: 0.7rem;
             font-weight: 500;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            max-width: 60%;
+            max-width: 55%;
         }
         .hero-kw-item .kw-bar-wrap {
             flex: 1;
             display: flex;
             align-items: center;
-            gap: 6px;
-            min-width: 60px;
+            gap: 4px;
+            min-width: 50px;
         }
         .hero-kw-item .kw-bar {
             flex: 1;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.2);
+            height: 3px;
+            background: rgba(255, 255, 255, 0.15);
             border-radius: 10px;
             overflow: hidden;
         }
@@ -504,36 +438,24 @@
             transition: width 1s ease;
         }
         .hero-kw-item .kw-score {
-            font-size: 0.65rem;
+            font-size: 0.6rem;
             font-weight: 700;
-            min-width: 28px;
+            min-width: 24px;
             text-align: right;
-            opacity: 0.85;
-        }
-        @media (max-width: 480px) {
-            .hero-card {
-                padding: 16px 16px 18px;
-                min-height: 200px;
-            }
-            .hero-kw-item .kw-name {
-                max-width: 45%;
-                font-size: 0.65rem;
-            }
-            .hero-kw-item .kw-score {
-                font-size: 0.6rem;
-                min-width: 22px;
-            }
+            opacity: 0.8;
         }
 
-        /* ===== VIDHI CARD (Right) ===== */
+        /* ============================================================
+                   VIDHI CARD – TASK CHECKLIST
+                   ============================================================ */
         .vidhi-card .traffic-meter {
             display: flex;
             align-items: baseline;
-            gap: 8px;
-            margin: 4px 0 14px;
+            gap: 6px;
+            margin: 0 0 10px;
         }
         .vidhi-card .traffic-meter .level {
-            font-size: clamp(1.2rem, 1.8vw, 1.6rem);
+            font-size: 1.2rem;
             font-weight: 800;
             color: var(--primary);
         }
@@ -550,41 +472,50 @@
                 opacity: 0.5;
             }
         }
-        .vidhi-card .task-list {
+        .vidhi-card .traffic-meter .sub {
+            font-size: 0.6rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .task-list {
             display: flex;
             flex-direction: column;
-            gap: 8px;
-            margin-top: 6px;
+            gap: 6px;
+            margin-top: 4px;
         }
-        .vidhi-card .task-item {
+        .task-item {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 10px 14px;
+            padding: 8px 12px;
             border-radius: var(--radius-xs);
             background: var(--cream);
             border: 1px solid rgba(0, 0, 0, 0.04);
             transition: all var(--transition);
             cursor: pointer;
-            font-size: clamp(0.7rem, 0.9vw, 0.85rem);
+            font-size: 0.75rem;
             font-weight: 500;
             color: var(--text-secondary);
-            gap: 10px;
+            gap: 8px;
+            touch-action: manipulation;
         }
-        .vidhi-card .task-item:hover {
-            border-color: rgba(249, 115, 22, 0.2);
-            background: #faf0e8;
+        .task-item:active {
+            transform: scale(0.97);
         }
-        .vidhi-card .task-item.done {
+        .task-item:hover {
+            border-color: rgba(249, 115, 22, 0.15);
+        }
+        .task-item.done {
             background: #eaf7ed;
             border-color: #b8d9c0;
             color: #2d6a4f;
             text-decoration: line-through;
             opacity: 0.7;
         }
-        .vidhi-card .task-item .check {
-            width: 22px;
-            height: 22px;
+        .task-item .check {
+            width: 20px;
+            height: 20px;
             border-radius: 50%;
             border: 2px solid #d0c8c0;
             display: flex;
@@ -592,67 +523,65 @@
             justify-content: center;
             flex-shrink: 0;
             transition: all var(--transition);
-            font-size: 0.7rem;
+            font-size: 0.6rem;
             color: transparent;
         }
-        .vidhi-card .task-item.done .check {
+        .task-item.done .check {
             background: #2d6a4f;
             border-color: #2d6a4f;
             color: #fff;
         }
 
-        /* ===== SHABDA TREASURY ===== */
-        .treasury {
-            margin-top: 20px;
-        }
-        .treasury .treasury-header {
+        /* ============================================================
+                   SHABDA TREASURY – KEYWORD LIST
+                   ============================================================ */
+        .treasury-header {
             display: flex;
-            flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
-            padding-bottom: 12px;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.12);
-            margin-bottom: 4px;
-            gap: 8px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.08);
+            margin-bottom: 2px;
         }
-        .treasury .treasury-header h2 {
+        .treasury-header h2 {
             font-family: var(--font-serif);
             font-weight: 700;
-            font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+            font-size: 1rem;
             color: var(--maroon);
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
-        .treasury .treasury-header .count {
-            font-size: 0.7rem;
+        .treasury-header .count {
+            font-size: 0.6rem;
             font-weight: 500;
             color: var(--text-muted);
             background: var(--cream);
-            padding: 2px 14px;
+            padding: 2px 12px;
             border-radius: 40px;
         }
+
         .treasury-item {
-            border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.02);
             transition: background var(--transition);
             cursor: pointer;
         }
-        .treasury-item:hover {
-            background: rgba(249, 115, 22, 0.03);
+        .treasury-item:active {
+            background: rgba(249, 115, 22, 0.04);
         }
         .treasury-item .ti-row {
             display: flex;
             align-items: center;
-            padding: 10px 4px 10px 8px;
-            gap: 8px 14px;
-            flex-wrap: wrap;
+            padding: 8px 2px 8px 4px;
+            gap: 4px 8px;
+            flex-wrap: nowrap;
         }
         .treasury-item .ti-rank {
             font-family: var(--font-serif);
             font-weight: 700;
-            font-size: 0.75rem;
+            font-size: 0.65rem;
             color: var(--text-muted);
-            min-width: 28px;
+            min-width: 22px;
             text-align: center;
         }
         .treasury-item .ti-rank.top {
@@ -660,10 +589,13 @@
         }
         .treasury-item .ti-keyword {
             font-weight: 600;
-            font-size: clamp(0.8rem, 1vw, 0.95rem);
+            font-size: 0.75rem;
             flex: 1;
-            min-width: 120px;
+            min-width: 70px;
             color: var(--text-primary);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
         .treasury-item .ti-keyword.top {
             color: var(--maroon);
@@ -671,13 +603,13 @@
         .treasury-item .ti-bar-wrap {
             display: flex;
             align-items: center;
-            gap: 8px;
-            min-width: 80px;
-            flex: 0 1 140px;
+            gap: 4px;
+            min-width: 50px;
+            flex: 0 1 70px;
         }
         .treasury-item .ti-bar {
             flex: 1;
-            height: 5px;
+            height: 4px;
             background: #eee8e2;
             border-radius: 10px;
             overflow: hidden;
@@ -692,24 +624,25 @@
             background: var(--primary);
         }
         .treasury-item .ti-score {
-            font-size: 0.7rem;
+            font-size: 0.6rem;
             font-weight: 700;
             color: var(--text-muted);
-            min-width: 30px;
+            min-width: 24px;
             text-align: right;
         }
         .treasury-item .ti-chevron {
             color: var(--text-muted);
             transition: transform var(--transition);
-            font-size: 0.7rem;
-            padding: 0 4px;
+            font-size: 0.6rem;
+            padding: 0 2px;
+            flex-shrink: 0;
         }
         .treasury-item .ti-chevron.open {
             transform: rotate(180deg);
         }
         .treasury-item .ti-pros {
-            padding: 0 8px 14px 48px;
-            font-size: 0.8rem;
+            padding: 0 6px 12px 28px;
+            font-size: 0.7rem;
             color: var(--text-secondary);
             line-height: 1.5;
             display: none;
@@ -720,7 +653,7 @@
         }
         .treasury-item .ti-pros .pros-inner {
             background: var(--cream);
-            padding: 10px 14px;
+            padding: 8px 12px;
             border-radius: var(--radius-xs);
             border-left: 3px solid var(--primary);
         }
@@ -728,102 +661,81 @@
             font-weight: 700;
             color: var(--maroon);
             font-family: var(--font-serif);
-            margin-right: 6px;
+            margin-right: 4px;
         }
         @keyframes fadeSlide {
             from {
                 opacity: 0;
-                transform: translateY(-6px);
+                transform: translateY(-4px);
             }
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-        @media (max-width: 600px) {
-            .treasury-item .ti-row {
-                padding: 8px 2px 8px 4px;
-                gap: 4px 8px;
-            }
-            .treasury-item .ti-bar-wrap {
-                min-width: 60px;
-                flex: 0 1 80px;
-            }
-            .treasury-item .ti-pros {
-                padding-left: 16px;
-            }
-            .treasury-item .ti-rank {
-                min-width: 20px;
-                font-size: 0.65rem;
-            }
-            .treasury-item .ti-keyword {
-                font-size: 0.75rem;
-                min-width: 80px;
-            }
-        }
 
-        /* ===== KARMA TRACKER ===== */
+        /* ============================================================
+                   KARMA TRACKER – PREMIUM FOOTER
+                   ============================================================ */
         .karma-tracker {
-            margin-top: 20px;
             background: var(--maroon);
-            border-radius: var(--radius-sm);
-            padding: 18px 22px;
+            border-radius: var(--radius);
+            padding: 14px 16px;
             display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
-            gap: 14px 20px;
-            color: #fff;
-            box-shadow: 0 8px 32px rgba(69, 10, 10, 0.25);
+            flex-direction: column;
+            gap: 10px;
+            box-shadow: 0 8px 32px rgba(69, 10, 10, 0.20);
+            border: 1px solid rgba(212, 175, 55, 0.08);
         }
-        .karma-tracker .k-left {
+        .karma-tracker .k-top {
             display: flex;
             align-items: center;
-            gap: 14px;
+            gap: 12px;
         }
-        .karma-tracker .k-left .icon {
-            width: 44px;
-            height: 44px;
+        .karma-tracker .k-top .icon {
+            width: 36px;
+            height: 36px;
             background: var(--gold);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.4rem;
+            font-size: 1.1rem;
             color: var(--maroon);
             font-weight: 900;
             flex-shrink: 0;
         }
-        .karma-tracker .k-left .k-text h3 {
+        .karma-tracker .k-top .k-text h3 {
             font-family: var(--font-serif);
             font-weight: 700;
-            font-size: clamp(1rem, 1.3vw, 1.2rem);
+            font-size: 0.95rem;
+            color: #fff;
         }
-        .karma-tracker .k-left .k-text p {
-            font-size: 0.7rem;
-            opacity: 0.65;
+        .karma-tracker .k-top .k-text p {
+            font-size: 0.6rem;
+            opacity: 0.5;
             font-weight: 400;
+            color: #fff;
         }
         .karma-tracker .k-bar-wrap {
-            flex: 1;
-            min-width: 120px;
-            max-width: 380px;
+            width: 100%;
         }
         .karma-tracker .k-bar-wrap .k-bar-label {
             display: flex;
             justify-content: space-between;
-            font-size: 0.6rem;
+            font-size: 0.5rem;
             font-weight: 600;
-            opacity: 0.5;
-            margin-bottom: 4px;
+            opacity: 0.4;
+            color: #fff;
+            margin-bottom: 3px;
             letter-spacing: 0.04em;
         }
         .karma-tracker .k-bar-wrap .k-bar-track {
-            height: 8px;
-            background: rgba(255, 255, 255, 0.12);
+            height: 6px;
+            background: rgba(255, 255, 255, 0.10);
             border-radius: 20px;
             overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.04);
         }
         .karma-tracker .k-bar-wrap .k-bar-track .k-fill {
             height: 100%;
@@ -836,11 +748,11 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
             transform: skewX(-20deg);
-            animation: shine-karma 2.5s infinite;
+            animation: shine-karma-mobile 2.5s infinite;
         }
-        @keyframes shine-karma {
+        @keyframes shine-karma-mobile {
             0% {
                 transform: skewX(-20deg) translateX(-100%);
             }
@@ -849,51 +761,39 @@
             }
         }
         .karma-tracker .k-status {
-            font-size: 0.7rem;
-            font-weight: 600;
-            text-align: right;
-            color: var(--gold-light);
-            min-width: 120px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         .karma-tracker .k-status .pct {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 800;
-            display: block;
+            color: var(--gold-light);
             font-family: var(--font-serif);
         }
-        @media (max-width: 700px) {
-            .karma-tracker {
-                flex-direction: column;
-                align-items: stretch;
-                padding: 16px;
-            }
-            .karma-tracker .k-bar-wrap {
-                max-width: 100%;
-            }
-            .karma-tracker .k-status {
-                text-align: left;
-                min-width: auto;
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-            }
-            .karma-tracker .k-status .pct {
-                display: inline;
-                font-size: 1rem;
-            }
+        .karma-tracker .k-status .msg {
+            font-size: 0.6rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.5);
+        }
+        .karma-tracker .k-status .msg.done {
+            color: var(--gold-light);
         }
 
-        /* ===== TUTORIAL OVERLAY ===== */
+        /* ============================================================
+                   TUTORIAL OVERLAY – MOBILE OPTIMIZED
+                   ============================================================ */
         .tutorial-overlay {
             position: fixed;
             inset: 0;
             z-index: 999;
-            background: rgba(0, 0, 0, 0.55);
-            backdrop-filter: blur(6px);
+            background: rgba(0, 0, 0, 0.50);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
             display: flex;
             align-items: flex-end;
             justify-content: center;
-            padding: 20px;
+            padding: 16px;
             opacity: 0;
             pointer-events: none;
             transition: opacity 0.4s ease;
@@ -905,9 +805,9 @@
         .tutorial-card {
             background: var(--surface);
             border-radius: var(--radius);
-            max-width: 460px;
+            max-width: 400px;
             width: 100%;
-            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.4);
             overflow: hidden;
             transform: translateY(30px) scale(0.96);
             transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s ease;
@@ -919,47 +819,51 @@
         }
         .tutorial-card .t-head {
             background: linear-gradient(145deg, var(--primary), var(--primary-dark));
-            padding: 16px 20px;
+            padding: 14px 18px;
             color: #fff;
         }
         .tutorial-card .t-head h3 {
             font-family: var(--font-serif);
             font-weight: 700;
-            font-size: 1.2rem;
+            font-size: 1.05rem;
         }
         .tutorial-card .t-body {
-            padding: 20px 22px 22px;
+            padding: 16px 18px 18px;
         }
         .tutorial-card .t-body p {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             line-height: 1.6;
             color: var(--text-secondary);
-            margin-bottom: 16px;
+            margin-bottom: 14px;
         }
         .tutorial-card .t-body .t-step {
-            font-size: 0.65rem;
+            font-size: 0.6rem;
             font-weight: 700;
             color: var(--text-muted);
             letter-spacing: 0.06em;
             text-transform: uppercase;
-            margin-bottom: 4px;
+            margin-bottom: 2px;
         }
         .tutorial-card .t-footer {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding-top: 12px;
-            border-top: 1px solid rgba(0, 0, 0, 0.05);
-            gap: 10px;
+            padding-top: 10px;
+            border-top: 1px solid rgba(0, 0, 0, 0.04);
+            gap: 8px;
         }
         .tutorial-card .t-footer .btn {
-            padding: 8px 24px;
+            padding: 6px 20px;
             border-radius: 40px;
             font-weight: 700;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             border: none;
             cursor: pointer;
             transition: all var(--transition);
+            touch-action: manipulation;
+        }
+        .tutorial-card .t-footer .btn:active {
+            transform: scale(0.95);
         }
         .tutorial-card .t-footer .btn-skip {
             background: transparent;
@@ -975,40 +879,31 @@
         }
         .tutorial-card .t-footer .btn-next:hover {
             background: var(--maroon-muted);
-            transform: translateY(-1px);
-        }
-        @media (max-width: 480px) {
-            .tutorial-overlay {
-                padding: 12px;
-                align-items: flex-end;
-            }
-            .tutorial-card .t-body {
-                padding: 16px;
-            }
-            .tutorial-card .t-footer .btn {
-                padding: 6px 16px;
-                font-size: 0.7rem;
-            }
         }
 
-        /* ===== UTILITY ===== */
+        /* ============================================================
+                   UTILITY CLASSES
+                   ============================================================ */
         .hidden {
             display: none !important;
+        }
+        .mt-1 {
+            margin-top: 4px;
+        }
+        .mt-2 {
+            margin-top: 8px;
+        }
+        .mb-1 {
+            margin-bottom: 4px;
         }
         .text-center {
             text-align: center;
         }
-        .mt-1 {
-            margin-top: 6px;
+        .w-full {
+            width: 100%;
         }
-        .mt-2 {
-            margin-top: 12px;
-        }
-        .mb-1 {
-            margin-bottom: 6px;
-        }
-        .gap-1 {
-            gap: 4px;
+        .op-60 {
+            opacity: 0.6;
         }
         .flex {
             display: flex;
@@ -1022,34 +917,116 @@
         .justify-between {
             justify-content: space-between;
         }
-        .w-full {
-            width: 100%;
+        .gap-1 {
+            gap: 4px;
         }
-        .op-60 {
-            opacity: 0.6;
+        .gap-2 {
+            gap: 8px;
         }
 
-        /* responsive tweaks */
-        @media (max-width: 480px) {
-            .card {
-                padding: 12px 12px 16px;
+        /* ============================================================
+                   SPECIAL TOUCHES – PREMIUM DETAILS
+                   ============================================================ */
+        .gold-dot {
+            display: inline-block;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: var(--gold);
+            margin: 0 4px;
+            opacity: 0.4;
+        }
+        .divider-light {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.15), transparent);
+            margin: 6px 0;
+        }
+        .glow-text {
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
+        }
+
+        /* ============================================================
+                   RESPONSIVE TWEAKS
+                   ============================================================ */
+        @media (max-width: 380px) {
+            .app-container {
+                gap: 10px;
             }
-            .calendar-grid {
-                gap: 2px;
+            .card {
+                padding: 12px 12px 14px;
+            }
+            .hero-card {
+                padding: 14px 14px 16px;
+            }
+            .hero-card .hero-event {
+                font-size: 1rem;
+            }
+            .hero-kw-item .kw-name {
+                font-size: 0.6rem;
+                max-width: 45%;
             }
             .calendar-cell {
                 font-size: 0.6rem;
-                border-width: 1px;
+                min-height: 28px;
             }
-            .calendar-cell.selected {
-                border-width: 2px;
+            .task-item {
+                font-size: 0.65rem;
+                padding: 6px 10px;
             }
-            .vidhi-card .task-item {
-                padding: 7px 10px;
-                font-size: 0.7rem;
+            .treasury-item .ti-keyword {
+                font-size: 0.65rem;
+                min-width: 50px;
+            }
+            .treasury-item .ti-bar-wrap {
+                min-width: 40px;
+                flex: 0 1 50px;
+            }
+            .app-header .brand h1 {
+                font-size: 1.1rem;
             }
         }
-        /* print-friendly */
+
+        @media (min-width: 481px) {
+            body {
+                padding: 24px;
+                background-image: radial-gradient(circle at 20% 30%, rgba(249, 115, 22, 0.06) 0%, transparent 60%),
+                    radial-gradient(circle at 80% 70%, rgba(212, 175, 55, 0.04) 0%, transparent 50%);
+            }
+            .app-container {
+                max-width: 520px;
+                gap: 18px;
+            }
+            .card {
+                padding: 20px 22px 22px;
+                border-radius: 20px;
+            }
+            .hero-card {
+                padding: 24px 24px 26px;
+                border-radius: 20px;
+            }
+            .hero-card .hero-event {
+                font-size: 1.4rem;
+            }
+            .calendar-cell {
+                font-size: 0.8rem;
+                min-height: 38px;
+            }
+            .calendar-grid {
+                gap: 4px;
+            }
+            .karma-tracker {
+                padding: 18px 20px;
+                border-radius: 20px;
+            }
+            .tutorial-card {
+                border-radius: 20px;
+            }
+        }
+
+        /* ============================================================
+                   PRINT STYLES
+                   ============================================================ */
         @media print {
             .tutorial-overlay {
                 display: none !important;
@@ -1058,9 +1035,13 @@
                 background: #fff;
                 padding: 0;
             }
-            .dashboard {
+            .app-container {
+                max-width: 100%;
+            }
+            .card {
                 box-shadow: none;
                 border: 1px solid #ddd;
+                break-inside: avoid;
             }
             .hero-card {
                 -webkit-print-color-adjust: exact;
@@ -1071,129 +1052,150 @@
                 print-color-adjust: exact;
             }
         }
-        /* touch-friendly tap targets */
-        .calendar-cell,
-        .task-item,
-        .treasury-item,
-        .btn {
-            touch-action: manipulation;
+
+        /* ============================================================
+                   ACCESSIBILITY – REDUCED MOTION
+                   ============================================================ */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            .calendar-cell.guru {
+                animation: none;
+                box-shadow: 0 0 0 3px var(--gold-glow);
+            }
+            .traffic-maximum {
+                animation: none;
+                box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.3);
+            }
+            .karma-tracker .k-bar-wrap .k-bar-track .k-fill::after {
+                animation: none;
+                display: none;
+            }
+            .hero-card::after {
+                display: none;
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="dashboard" role="main">
-        <div class="dashboard-inner">
+    <!-- ============================================================
+    APP CONTAINER
+    ============================================================ -->
+    <div class="app-container" id="app" role="main">
 
-            <!-- ===== HEADER ===== -->
-            <header class="header">
-                <div class="header-brand">
-                    <h1>BNKJSS <span>AstroSeva</span></h1>
-                    <span class="sub">Command Center</span>
-                </div>
-                <div class="header-meta">
-                    <span class="badge"><span class="icon">📍</span> IST (UTC+5:30)</span>
-                    <span class="badge"><span class="icon">📅</span> July 2026</span>
-                    <span class="badge" style="background:rgba(212,175,55,0.08);border-color:var(--gold);color:var(--gold);">
-                        <span class="icon">✦</span> High‑End Edition
-                    </span>
-                </div>
-            </header>
+        <!-- ============================================================
+        HEADER
+        ============================================================ -->
+        <header class="app-header">
+            <div class="brand">
+                <h1>BNKJSS <span>AstroSeva</span></h1>
+                <span class="badge">✦ High-End</span>
+            </div>
+            <span class="date-badge" id="headerDate">Jul 29</span>
+        </header>
 
-            <!-- ===== MAIN GRID ===== -->
-            <div class="grid-main">
+        <!-- ============================================================
+        CALENDAR CARD
+        ============================================================ -->
+        <div class="card" id="cosmic-calendar">
+            <div class="card-title"><span class="emoji">🌌</span> Cosmic Calendar</div>
+            <div class="calendar-grid" id="calendarGrid">
+                <!-- filled by JS -->
+            </div>
+            <div class="calendar-legend">
+                <span class="leg-item"><span class="swatch traffic-low"></span> Low</span>
+                <span class="leg-item"><span class="swatch traffic-medium"></span> Med</span>
+                <span class="leg-item"><span class="swatch traffic-high"></span> High</span>
+                <span class="leg-item"><span class="swatch traffic-very-high"></span> V.H</span>
+                <span class="leg-item"><span class="swatch traffic-maximum" style="border-color:var(--gold);"></span> Max ✦</span>
+            </div>
+        </div>
 
-                <!-- LEFT: CALENDAR -->
-                <div class="card" id="cosmic-calendar">
-                    <div class="card-title"><span class="emoji">🌌</span> Cosmic Calendar</div>
-                    <div class="calendar-grid" id="calendarGrid">
-                        <!-- filled by JS -->
-                    </div>
-                    <div class="calendar-legend">
-                        <span class="leg-item"><span class="swatch traffic-low"></span> Low</span>
-                        <span class="leg-item"><span class="swatch traffic-medium"></span> Medium</span>
-                        <span class="leg-item"><span class="swatch traffic-high"></span> High</span>
-                        <span class="leg-item"><span class="swatch traffic-very-high"></span> V.High</span>
-                        <span class="leg-item"><span class="swatch traffic-maximum" style="border-color:var(--gold);"></span> Max</span>
-                    </div>
-                </div>
-
-                <!-- CENTER: HERO -->
-                <div class="hero-card" id="today-dispatch">
-                    <div>
-                        <div class="hero-top">
-                            <span class="hero-tag" id="heroDay">Wednesday, 2026-07-01</span>
-                            <span class="hero-theme" id="heroTheme">Foundation & Awareness</span>
-                        </div>
-                        <div class="hero-event" id="heroEvent">Mercury Retrograde in Cancer</div>
-                        <div class="hero-strategy" id="heroStrategy">"Publish a 5,000-word SEO pillar on 'Mercury Retrograde Remedies' to capture high panic-search traffic."</div>
-                    </div>
-                    <div class="hero-keywords">
-                        <div class="kw-label"><span class="spark">✦</span> Power Keywords for Today</div>
-                        <div id="heroKeywords">
-                            <!-- filled by JS -->
-                        </div>
-                    </div>
-                </div>
-
-                <!-- RIGHT: VIDHI -->
-                <div class="card vidhi-card" id="vidhi-widget">
-                    <div class="card-title"><span class="emoji">📋</span> The Vidhi</div>
-                    <div style="margin-bottom:12px;">
-                        <div style="font-size:0.6rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-muted);">Algorithm Driver</div>
-                        <div class="traffic-meter">
-                            <span class="level" id="trafficLevel">High</span>
-                            <span style="font-size:0.7rem;color:var(--text-muted);font-weight:500;">traffic potential</span>
-                        </div>
-                    </div>
-                    <div style="font-size:0.6rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-muted);margin-bottom:8px;">Required Formats</div>
-                    <div class="task-list" id="taskList">
-                        <!-- filled by JS -->
-                    </div>
-                </div>
-
-            </div><!-- /grid-main -->
-
-            <!-- ===== SHABDA TREASURY ===== -->
-            <div class="treasury card" id="shabda-treasury" style="margin-top:20px;">
-                <div class="treasury-header">
-                    <h2><span>🗝️</span> Shabda Treasury</h2>
-                    <span class="count" id="kwCount">10 terms</span>
-                </div>
-                <div id="treasuryList">
+        <!-- ============================================================
+        HERO CARD – TODAY'S DISPATCH
+        ============================================================ -->
+        <div class="hero-card" id="today-dispatch">
+            <div class="hero-top">
+                <span class="hero-tag" id="heroDay">Wed, Jul 1</span>
+                <span class="hero-theme" id="heroTheme">Foundation</span>
+            </div>
+            <div class="hero-event" id="heroEvent">Mercury Retrograde in Cancer</div>
+            <div class="hero-strategy" id="heroStrategy">"Publish a 5,000-word SEO pillar on Mercury Retrograde Remedies."</div>
+            <div class="hero-keywords">
+                <div class="kw-label"><span class="spark">✦</span> Power Keywords</div>
+                <div id="heroKeywords">
                     <!-- filled by JS -->
                 </div>
             </div>
+        </div>
 
-            <!-- ===== KARMA TRACKER ===== -->
-            <div class="karma-tracker" id="karma-tracker">
-                <div class="k-left">
-                    <div class="icon">⚡</div>
-                    <div class="k-text">
-                        <h3>Daily Karma Score</h3>
-                        <p>Align with the cosmic flow of traffic.</p>
-                    </div>
-                </div>
-                <div class="k-bar-wrap">
-                    <div class="k-bar-label">
-                        <span>0%</span>
-                        <span id="karmaPctLabel">0% Complete</span>
-                        <span>100%</span>
-                    </div>
-                    <div class="k-bar-track">
-                        <div class="k-fill" id="karmaFill" style="width:0%;"></div>
-                    </div>
-                </div>
-                <div class="k-status">
-                    <span class="pct" id="karmaPctBig">0%</span>
-                    <span id="karmaStatus">Execute Vidhi to progress</span>
+        <!-- ============================================================
+        VIDHI CARD – TASKS
+        ============================================================ -->
+        <div class="card vidhi-card" id="vidhi-widget">
+            <div class="card-title"><span class="emoji">📋</span> The Vidhi</div>
+            <div class="traffic-meter">
+                <span class="level" id="trafficLevel">High</span>
+                <span class="sub">traffic potential</span>
+            </div>
+            <div class="divider-light"></div>
+            <div style="font-size:0.55rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-muted);margin-bottom:6px;">Required Formats</div>
+            <div class="task-list" id="taskList">
+                <!-- filled by JS -->
+            </div>
+        </div>
+
+        <!-- ============================================================
+        SHABDA TREASURY – KEYWORDS
+        ============================================================ -->
+        <div class="card treasury" id="shabda-treasury">
+            <div class="treasury-header">
+                <h2><span>🗝️</span> Shabda Treasury</h2>
+                <span class="count" id="kwCount">10 terms</span>
+            </div>
+            <div id="treasuryList">
+                <!-- filled by JS -->
+            </div>
+        </div>
+
+        <!-- ============================================================
+        KARMA TRACKER
+        ============================================================ -->
+        <div class="karma-tracker" id="karma-tracker">
+            <div class="k-top">
+                <div class="icon">⚡</div>
+                <div class="k-text">
+                    <h3>Daily Karma Score</h3>
+                    <p>Align with the cosmic flow</p>
                 </div>
             </div>
+            <div class="k-bar-wrap">
+                <div class="k-bar-label">
+                    <span>0%</span>
+                    <span id="karmaPctLabel">0% Complete</span>
+                    <span>100%</span>
+                </div>
+                <div class="k-bar-track">
+                    <div class="k-fill" id="karmaFill" style="width:0%;"></div>
+                </div>
+            </div>
+            <div class="k-status">
+                <span class="pct" id="karmaPctBig">0%</span>
+                <span class="msg" id="karmaStatus">Execute Vidhi to progress</span>
+            </div>
+        </div>
 
-        </div><!-- /dashboard-inner -->
-    </div><!-- /dashboard -->
+    </div><!-- /app-container -->
 
-    <!-- ===== TUTORIAL OVERLAY ===== -->
+    <!-- ============================================================
+    TUTORIAL OVERLAY
+    ============================================================ -->
     <div class="tutorial-overlay" id="tutorialOverlay">
         <div class="tutorial-card">
             <div class="t-head">
@@ -1201,7 +1203,7 @@
             </div>
             <div class="t-body">
                 <div class="t-step" id="tutorialStep">Step 1 of 5</div>
-                <p id="tutorialDesc">Navigate the full month of July 2026. Dates are color‑coded by traffic potential. Gold = Hottest Day. Tap a date to change strategy.</p>
+                <p id="tutorialDesc">Tap any date to load its strategy. Gold = Hottest Day (Guru Purnima).</p>
                 <div class="t-footer">
                     <button class="btn btn-skip" id="tutorialSkip">Skip</button>
                     <button class="btn btn-next" id="tutorialNext">Next</button>
@@ -1210,34 +1212,51 @@
         </div>
     </div>
 
+    <!-- ============================================================
+    JAVASCRIPT – FULL DASHBOARD ENGINE
+    ============================================================ -->
     <script>
         // ============================================================
-        //  DATA
+        // DATA – Full July 2026 (abridged for size, full set in production)
         // ============================================================
-        const DAILY_DATA = [
-            { "date": "2026-07-01", "day": "Wednesday", "event": "Mercury Retrograde in Cancer", "campaignTheme": "Foundation & Awareness",
-                "strategySummary": "Publish a 5,000-word SEO pillar on 'Mercury Retrograde Remedies' to capture high panic-search traffic.",
-                "trafficDriver": "High", "postTypeMix": ["Blog (Long-form)", "Instagram Carousel", "YouTube Short"],
-                "topKeywords": [{ "rank": 1, "keyword": "Mercury retrograde July 2026", "powerScore": 98,
+        const DAILY_DATA = [{
+            "date": "2026-07-01",
+            "day": "Wednesday",
+            "event": "Mercury Retrograde in Cancer",
+            "campaignTheme": "Foundation & Awareness",
+            "strategySummary": "Publish a 5,000-word SEO pillar on 'Mercury Retrograde Remedies' to capture high panic-search traffic.",
+            "trafficDriver": "High",
+            "postTypeMix": ["Blog (Long-form)", "Instagram Carousel", "YouTube Short"],
+            "topKeywords": [{ "rank": 1, "keyword": "Mercury retrograde July 2026", "powerScore": 98,
                     "pros": "Panic spike; ranks instantly on Google News." },
                 { "rank": 2, "keyword": "Budh grah ka upay", "powerScore": 95,
                     "pros": "Evergreen Hindi term; low competition." },
                 { "rank": 3, "keyword": "Mercury retrograde remedies", "powerScore": 92,
                     "pros": "Commercial intent; users buy gemstones." },
-                { "rank": 4, "keyword": "July 2026 horoscope", "powerScore": 85, "pros": "Generic; captures month-planners." },
+                { "rank": 4, "keyword": "July 2026 horoscope", "powerScore": 85,
+                    "pros": "Generic; captures month-planners." },
                 { "rank": 5, "keyword": "Cancer zodiac predictions", "powerScore": 80,
                     "pros": "Specific to retrograde sign; high CTR." },
-                { "rank": 6, "keyword": "Budh grah shanti", "powerScore": 78, "pros": "High intent for puja bookings." },
+                { "rank": 6, "keyword": "Budh grah shanti", "powerScore": 78,
+                    "pros": "High intent for puja bookings." },
                 { "rank": 7, "keyword": "Mercury retrograde effects 2026", "powerScore": 76,
                     "pros": "Educational; high dwell time." },
-                { "rank": 8, "keyword": "aaj ka rashifal", "powerScore": 72, "pros": "Daily habit; ensures repeat visits." },
-                { "rank": 9, "keyword": "July rashi bhavishya", "powerScore": 68, "pros": "Regional language dominance." },
+                { "rank": 8, "keyword": "aaj ka rashifal", "powerScore": 72,
+                    "pros": "Daily habit; ensures repeat visits." },
+                { "rank": 9, "keyword": "July rashi bhavishya", "powerScore": 68,
+                    "pros": "Regional language dominance." },
                 { "rank": 10, "keyword": "2026 astrology predictions", "powerScore": 60,
-                    "pros": "Broad; builds domain authority." }] },
-            { "date": "2026-07-02", "day": "Thursday", "event": "Mars enters Gemini", "campaignTheme": "Transit Buzz",
-                "strategySummary": "Launch a YouTube video explaining Mars in Gemini effects for each rising sign.",
-                "trafficDriver": "Very High", "postTypeMix": ["YouTube Video", "Instagram Reel", "WhatsApp Voice Note"],
-                "topKeywords": [{ "rank": 1, "keyword": "Mars in Gemini 2026", "powerScore": 97,
+                    "pros": "Broad; builds domain authority." }
+            ]
+        }, {
+            "date": "2026-07-02",
+            "day": "Thursday",
+            "event": "Mars enters Gemini",
+            "campaignTheme": "Transit Buzz",
+            "strategySummary": "Launch a YouTube video explaining Mars in Gemini effects for each rising sign.",
+            "trafficDriver": "Very High",
+            "postTypeMix": ["YouTube Video", "Instagram Reel", "WhatsApp Voice Note"],
+            "topKeywords": [{ "rank": 1, "keyword": "Mars in Gemini 2026", "powerScore": 97,
                     "pros": "Top planetary transit keyword." },
                 { "rank": 2, "keyword": "Mangal gochar July 2026", "powerScore": 94,
                     "pros": "Native term; high authenticity." },
@@ -1245,114 +1264,173 @@
                     "pros": "Attracts working professionals." },
                 { "rank": 4, "keyword": "Gemini Mars transit love", "powerScore": 88,
                     "pros": "High Instagram/Facebook engagement." },
-                { "rank": 5, "keyword": "Mangal grah ke upay", "powerScore": 85, "pros": "Fear-based; ready to convert." },
+                { "rank": 5, "keyword": "Mangal grah ke upay", "powerScore": 85,
+                    "pros": "Fear-based; ready to convert." },
                 { "rank": 6, "keyword": "Mars in Gemini 2026 astrology", "powerScore": 82,
                     "pros": "Detailed; ranks well on YouTube." },
                 { "rank": 7, "keyword": "July 2 astrology prediction", "powerScore": 78,
                     "pros": "Date-specific; urgent clicks." },
-                { "rank": 8, "keyword": "Mangal grah shanti", "powerScore": 75, "pros": "Puja intent; high revenue." },
-                { "rank": 9, "keyword": "Mars transit for Aries", "powerScore": 72, "pros": "Personalized; targets fire signs." },
+                { "rank": 8, "keyword": "Mangal grah shanti", "powerScore": 75,
+                    "pros": "Puja intent; high revenue." },
+                { "rank": 9, "keyword": "Mars transit for Aries", "powerScore": 72,
+                    "pros": "Personalized; targets fire signs." },
                 { "rank": 10, "keyword": "Mars in Gemini effects 2026", "powerScore": 68,
-                    "pros": "Educational; good for SEO." }] },
-            { "date": "2026-07-03", "day": "Friday", "event": "Krishnapingal Sankashti Chaturthi",
-                "campaignTheme": "Community & Seva",
-                "strategySummary": "Post a Reel showing the Ganesh puja vidhi and share the Sankashti katha.",
-                "trafficDriver": "Medium", "postTypeMix": ["Instagram Reel", "Facebook Event", "Blog (Katha)"],
-                "topKeywords": [{ "rank": 1, "keyword": "Sankashti Chaturthi July 2026", "powerScore": 95,
+                    "pros": "Educational; good for SEO." }
+            ]
+        }, {
+            "date": "2026-07-03",
+            "day": "Friday",
+            "event": "Krishnapingal Sankashti Chaturthi",
+            "campaignTheme": "Community & Seva",
+            "strategySummary": "Post a Reel showing the Ganesh puja vidhi and share the Sankashti katha.",
+            "trafficDriver": "Medium",
+            "postTypeMix": ["Instagram Reel", "Facebook Event", "Blog (Katha)"],
+            "topKeywords": [{ "rank": 1, "keyword": "Sankashti Chaturthi July 2026", "powerScore": 95,
                     "pros": "Specific festival; high devotion." },
                 { "rank": 2, "keyword": "Krishnapingal Ganesha puja", "powerScore": 92,
                     "pros": "Unique name; low competition." },
-                { "rank": 3, "keyword": "Ganesh Chaturthi vrat", "powerScore": 88, "pros": "Procedural; users need guidance." },
+                { "rank": 3, "keyword": "Ganesh Chaturthi vrat", "powerScore": 88,
+                    "pros": "Procedural; users need guidance." },
                 { "rank": 4, "keyword": "Sankashti Chaturthi katha", "powerScore": 85,
                     "pros": "Storytelling; high watch time." },
-                { "rank": 5, "keyword": "Ganesh ji ki aarti", "powerScore": 82, "pros": "Evergreen; daily search." },
-                { "rank": 6, "keyword": "Vinayak Chaturthi", "powerScore": 80, "pros": "Alternate name; captures 50% users." },
+                { "rank": 5, "keyword": "Ganesh ji ki aarti", "powerScore": 82,
+                    "pros": "Evergreen; daily search." },
+                { "rank": 6, "keyword": "Vinayak Chaturthi", "powerScore": 80,
+                    "pros": "Alternate name; captures 50% users." },
                 { "rank": 7, "keyword": "Ganesha remedies for obstacles", "powerScore": 78,
                     "pros": "Problem-solving; high conversion." },
                 { "rank": 8, "keyword": "Chaturthi vrat vidhi", "powerScore": 75,
                     "pros": "Step-by-step; ranks as guide." },
-                { "rank": 9, "keyword": "Ganesh mantra", "powerScore": 72, "pros": "Audio intent; podcast repurpose." },
+                { "rank": 9, "keyword": "Ganesh mantra", "powerScore": 72,
+                    "pros": "Audio intent; podcast repurpose." },
                 { "rank": 10, "keyword": "Sankashti puja vidhi", "powerScore": 68,
-                    "pros": "Detailed procedure; expert status." }] },
-            { "date": "2026-07-04", "day": "Saturday", "event": "Venus enters Leo + Venus-Ketu Conjunction",
-                "campaignTheme": "Love & Relationships",
-                "strategySummary": "Launch a 'Love Horoscope' downloadable PDF guide and push a relationship quiz on Instagram.",
-                "trafficDriver": "Very High", "postTypeMix": ["Lead Magnet PDF", "Instagram Story Quiz", "LinkedIn Article"],
-                "topKeywords": [{ "rank": 1, "keyword": "Venus in Leo 2026", "powerScore": 96,
+                    "pros": "Detailed procedure; expert status." }
+            ]
+        }, {
+            "date": "2026-07-04",
+            "day": "Saturday",
+            "event": "Venus enters Leo + Venus-Ketu Conjunction",
+            "campaignTheme": "Love & Relationships",
+            "strategySummary": "Launch a 'Love Horoscope' downloadable PDF guide and push a relationship quiz on Instagram.",
+            "trafficDriver": "Very High",
+            "postTypeMix": ["Lead Magnet PDF", "Instagram Story Quiz", "LinkedIn Article"],
+            "topKeywords": [{ "rank": 1, "keyword": "Venus in Leo 2026", "powerScore": 96,
                     "pros": "Major planetary event; rare." },
                 { "rank": 2, "keyword": "Shukra-Ketu conjunction 2026", "powerScore": 94,
                     "pros": "Expert-level keyword; attracts intermediates." },
                 { "rank": 3, "keyword": "Venus in Leo love life", "powerScore": 92,
                     "pros": "#1 user query; high conversion." },
-                { "rank": 4, "keyword": "Shukra grah ke upay", "powerScore": 89, "pros": "Remedies; high commercial." },
-                { "rank": 5, "keyword": "Ketu remedies", "powerScore": 85, "pros": "Rare content; ranks instantly." },
+                { "rank": 4, "keyword": "Shukra grah ke upay", "powerScore": 89,
+                    "pros": "Remedies; high commercial." },
+                { "rank": 5, "keyword": "Ketu remedies", "powerScore": 85,
+                    "pros": "Rare content; ranks instantly." },
                 { "rank": 6, "keyword": "Venus transit July 4", "powerScore": 82,
                     "pros": "Date specific; urgent today traffic." },
                 { "rank": 7, "keyword": "Leo zodiac love horoscope", "powerScore": 80,
                     "pros": "Sun sign personalization." },
-                { "rank": 8, "keyword": "Shukra grah shanti", "powerScore": 78, "pros": "Puja intent; high ticket." },
+                { "rank": 8, "keyword": "Shukra grah shanti", "powerScore": 78,
+                    "pros": "Puja intent; high ticket." },
                 { "rank": 9, "keyword": "Venus-Ketu yuti effects", "powerScore": 76,
                     "pros": "Intermediate; deep dive content." },
                 { "rank": 10, "keyword": "Venus in Leo relationships", "powerScore": 72,
-                    "pros": "Long-tail; low competition." }] },
-            { "date": "2026-07-05", "day": "Sunday", "event": "Weekly Wrap & Analysis", "campaignTheme": "Content Syndication",
-                "strategySummary": "Compile the week's content into a 'Weekly Vedic Digest' newsletter and WhatsApp broadcast.",
-                "trafficDriver": "Medium", "postTypeMix": ["Email Newsletter", "WhatsApp Broadcast", "Infographic"],
-                "topKeywords": [{ "rank": 1, "keyword": "Weekly horoscope July 5", "powerScore": 90,
+                    "pros": "Long-tail; low competition." }
+            ]
+        }, {
+            "date": "2026-07-05",
+            "day": "Sunday",
+            "event": "Weekly Wrap & Analysis",
+            "campaignTheme": "Content Syndication",
+            "strategySummary": "Compile the week's content into a 'Weekly Vedic Digest' newsletter and WhatsApp broadcast.",
+            "trafficDriver": "Medium",
+            "postTypeMix": ["Email Newsletter", "WhatsApp Broadcast", "Infographic"],
+            "topKeywords": [{ "rank": 1, "keyword": "Weekly horoscope July 5", "powerScore": 90,
                     "pros": "Sunday ritual; dominates Google." },
-                { "rank": 2, "keyword": "Saptahik rashifal", "powerScore": 88, "pros": "Hindi keyword; massive untapped." },
+                { "rank": 2, "keyword": "Saptahik rashifal", "powerScore": 88,
+                    "pros": "Hindi keyword; massive untapped." },
                 { "rank": 3, "keyword": "July first week astrology", "powerScore": 85,
                     "pros": "Recap; captures latecomers." },
                 { "rank": 4, "keyword": "Venus in Leo predictions", "powerScore": 82,
                     "pros": "Predictive; drives email sign-ups." },
                 { "rank": 5, "keyword": "Weekly astrology update", "powerScore": 80,
                     "pros": "General; newsletter style." },
-                { "rank": 6, "keyword": "July 5 horoscope", "powerScore": 78, "pros": "Specific; high CTR." },
-                { "rank": 7, "keyword": "This week astrology", "powerScore": 75, "pros": "Casual; retargeting." },
-                { "rank": 8, "keyword": "Grah gochar weekly", "powerScore": 72, "pros": "Native; authority content." },
+                { "rank": 6, "keyword": "July 5 horoscope", "powerScore": 78,
+                    "pros": "Specific; high CTR." },
+                { "rank": 7, "keyword": "This week astrology", "powerScore": 75,
+                    "pros": "Casual; retargeting." },
+                { "rank": 8, "keyword": "Grah gochar weekly", "powerScore": 72,
+                    "pros": "Native; authority content." },
                 { "rank": 9, "keyword": "Leo weekly predictions", "powerScore": 70,
                     "pros": "Targets Leo signs for Sun transit." },
                 { "rank": 10, "keyword": "July 2026 weekly forecast", "powerScore": 68,
-                    "pros": "Preparation intent." }] },
-            { "date": "2026-07-06", "day": "Monday", "event": "Kalashtami", "campaignTheme": "Spiritual Bhakti & Trust",
-                "strategySummary": "Post Kaal Bhairav Chalisa video on YouTube and a 'Kavach' image on WhatsApp.",
-                "trafficDriver": "High", "postTypeMix": ["YouTube Video", "WhatsApp Image", "Facebook Group"],
-                "topKeywords": [{ "rank": 1, "keyword": "Kalashtami July 2026", "powerScore": 96,
+                    "pros": "Preparation intent." }
+            ]
+        }, {
+            "date": "2026-07-06",
+            "day": "Monday",
+            "event": "Kalashtami",
+            "campaignTheme": "Spiritual Bhakti & Trust",
+            "strategySummary": "Post Kaal Bhairav Chalisa video on YouTube and a 'Kavach' image on WhatsApp.",
+            "trafficDriver": "High",
+            "postTypeMix": ["YouTube Video", "WhatsApp Image", "Facebook Group"],
+            "topKeywords": [{ "rank": 1, "keyword": "Kalashtami July 2026", "powerScore": 96,
                     "pros": "Devotion-driven; high shareability." },
                 { "rank": 2, "keyword": "Kaal Bhairav puja", "powerScore": 93,
                     "pros": "Remedial; protection from black magic." },
-                { "rank": 3, "keyword": "Bhairav Chalisa", "powerScore": 90, "pros": "10-min watch time; YouTube gold." },
-                { "rank": 4, "keyword": "Kaal Bhairav aarti", "powerScore": 87, "pros": "Lyrics search; evergreen." },
-                { "rank": 5, "keyword": "Kalashtami katha", "powerScore": 84, "pros": "Storytelling; high retention." },
+                { "rank": 3, "keyword": "Bhairav Chalisa", "powerScore": 90,
+                    "pros": "10-min watch time; YouTube gold." },
+                { "rank": 4, "keyword": "Kaal Bhairav aarti", "powerScore": 87,
+                    "pros": "Lyrics search; evergreen." },
+                { "rank": 5, "keyword": "Kalashtami katha", "powerScore": 84,
+                    "pros": "Storytelling; high retention." },
                 { "rank": 6, "keyword": "Bhairav astami", "powerScore": 82,
                     "pros": "Phonetic variation; captures stragglers." },
-                { "rank": 7, "keyword": "Kaal Bhairav mantra", "powerScore": 80, "pros": "Chanting; audio repurpose." },
-                { "rank": 8, "keyword": "Bhairav puja vidhi", "powerScore": 78, "pros": "Procedural; expert authority." },
+                { "rank": 7, "keyword": "Kaal Bhairav mantra", "powerScore": 80,
+                    "pros": "Chanting; audio repurpose." },
+                { "rank": 8, "keyword": "Bhairav puja vidhi", "powerScore": 78,
+                    "pros": "Procedural; expert authority." },
                 { "rank": 9, "keyword": "Kalashtami significance", "powerScore": 75,
                     "pros": "Educational; cultural content." },
-                { "rank": 10, "keyword": "Kaal Bhairav upay", "powerScore": 72, "pros": "Remedial; high commercial." }] },
-            { "date": "2026-07-07", "day": "Tuesday", "event": "Venus enters Virgo", "campaignTheme": "Health & Daily Routine",
-                "strategySummary": "Create a 'Virgo Wellness Checklist' Vedic style. Promote health-related Kundali analysis.",
-                "trafficDriver": "High", "postTypeMix": ["Instagram Carousel", "Blog", "LinkedIn Post"],
-                "topKeywords": [{ "rank": 1, "keyword": "Venus in Virgo 2026", "powerScore": 95,
+                { "rank": 10, "keyword": "Kaal Bhairav upay", "powerScore": 72,
+                    "pros": "Remedial; high commercial." }
+            ]
+        }, {
+            "date": "2026-07-07",
+            "day": "Tuesday",
+            "event": "Venus enters Virgo",
+            "campaignTheme": "Health & Daily Routine",
+            "strategySummary": "Create a 'Virgo Wellness Checklist' Vedic style. Promote health-related Kundali analysis.",
+            "trafficDriver": "High",
+            "postTypeMix": ["Instagram Carousel", "Blog", "LinkedIn Post"],
+            "topKeywords": [{ "rank": 1, "keyword": "Venus in Virgo 2026", "powerScore": 95,
                     "pros": "Transit specific; high volume." },
                 { "rank": 2, "keyword": "Shukra gochar Kanya", "powerScore": 92,
                     "pros": "Native; regional search dominance." },
-                { "rank": 3, "keyword": "Virgo love horoscope", "powerScore": 89, "pros": "Direct sun sign; high CTR." },
+                { "rank": 3, "keyword": "Virgo love horoscope", "powerScore": 89,
+                    "pros": "Direct sun sign; high CTR." },
                 { "rank": 4, "keyword": "Kanya rashi July 2026", "powerScore": 86,
                     "pros": "Rashi specific; India traffic." },
-                { "rank": 5, "keyword": "Shukra grah shanti", "powerScore": 84, "pros": "Commercial; puja intent." },
+                { "rank": 5, "keyword": "Shukra grah shanti", "powerScore": 84,
+                    "pros": "Commercial; puja intent." },
                 { "rank": 6, "keyword": "Venus in Virgo health", "powerScore": 82,
                     "pros": "Wellness niche; collaborations." },
-                { "rank": 7, "keyword": "Venus in Virgo effects", "powerScore": 80, "pros": "General; evergreen." },
-                { "rank": 8, "keyword": "Shukra grah upay", "powerScore": 78, "pros": "Remedies; gemstone sales." },
-                { "rank": 9, "keyword": "Venus transit July 7", "powerScore": 76, "pros": "Date-specific; urgent." },
-                { "rank": 10, "keyword": "Virgo wellness Vedic", "powerScore": 72, "pros": "Long-tail; low competition." }] },
-            { "date": "2026-07-08", "day": "Wednesday", "event": "Post-Transit Consolidation",
-                "campaignTheme": "Educational Content",
-                "strategySummary": "Publish an English blog comparing Vedic vs Tropical Astrology to capture Western audiences.",
-                "trafficDriver": "Medium", "postTypeMix": ["Blog (Comparative)", "Twitter/X Thread", "Facebook Video"],
-                "topKeywords": [{ "rank": 1, "keyword": "Vedic astrology vs Western", "powerScore": 88,
+                { "rank": 7, "keyword": "Venus in Virgo effects", "powerScore": 80,
+                    "pros": "General; evergreen." },
+                { "rank": 8, "keyword": "Shukra grah upay", "powerScore": 78,
+                    "pros": "Remedies; gemstone sales." },
+                { "rank": 9, "keyword": "Venus transit July 7", "powerScore": 76,
+                    "pros": "Date-specific; urgent." },
+                { "rank": 10, "keyword": "Virgo wellness Vedic", "powerScore": 72,
+                    "pros": "Long-tail; low competition." }
+            ]
+        }, {
+            "date": "2026-07-08",
+            "day": "Wednesday",
+            "event": "Post-Transit Consolidation",
+            "campaignTheme": "Educational Content",
+            "strategySummary": "Publish an English blog comparing Vedic vs Tropical Astrology to capture Western audiences.",
+            "trafficDriver": "Medium",
+            "postTypeMix": ["Blog (Comparative)", "Twitter/X Thread", "Facebook Video"],
+            "topKeywords": [{ "rank": 1, "keyword": "Vedic astrology vs Western", "powerScore": 88,
                     "pros": "Comparative; high engagement." },
                 { "rank": 2, "keyword": "Kanya rashi predictions", "powerScore": 84,
                     "pros": "Rashi-specific; steady traffic." },
@@ -1360,19 +1438,28 @@
                     "pros": "Educational; authority content." },
                 { "rank": 4, "keyword": "Venus transit remedies", "powerScore": 78,
                     "pros": "Solution-focused; conversion." },
-                { "rank": 5, "keyword": "July 8 horoscope", "powerScore": 76, "pros": "Daily habit; repeat visitors." },
+                { "rank": 5, "keyword": "July 8 horoscope", "powerScore": 76,
+                    "pros": "Daily habit; repeat visitors." },
                 { "rank": 6, "keyword": "Grah gochar effects", "powerScore": 74,
                     "pros": "Consolidated transit news." },
-                { "rank": 7, "keyword": "All zodiac July 2026", "powerScore": 72, "pros": "Broad; shareable." },
-                { "rank": 8, "keyword": "Shukra grah mantra", "powerScore": 70, "pros": "Audio content; high retention." },
+                { "rank": 7, "keyword": "All zodiac July 2026", "powerScore": 72,
+                    "pros": "Broad; shareable." },
+                { "rank": 8, "keyword": "Shukra grah mantra", "powerScore": 70,
+                    "pros": "Audio content; high retention." },
                 { "rank": 9, "keyword": "Venus transit astrology", "powerScore": 68,
                     "pros": "General; top-of-funnel." },
                 { "rank": 10, "keyword": "Vedic science basics", "powerScore": 65,
-                    "pros": "Science angle; LinkedIn gold." }] },
-            { "date": "2026-07-09", "day": "Thursday", "event": "Guru Chandal Yoga", "campaignTheme": "Career & Finance",
-                "strategySummary": "Post a '10 Career Remedies for Jupiter' listicle. Tease the upcoming Guru Purnima event.",
-                "trafficDriver": "High", "postTypeMix": ["Blog", "LinkedIn Article", "Instagram Reel"],
-                "topKeywords": [{ "rank": 1, "keyword": "Guru Chandal Yoga 2026", "powerScore": 94,
+                    "pros": "Science angle; LinkedIn gold." }
+            ]
+        }, {
+            "date": "2026-07-09",
+            "day": "Thursday",
+            "event": "Guru Chandal Yoga",
+            "campaignTheme": "Career & Finance",
+            "strategySummary": "Post a '10 Career Remedies for Jupiter' listicle. Tease the upcoming Guru Purnima event.",
+            "trafficDriver": "High",
+            "postTypeMix": ["Blog", "LinkedIn Article", "Instagram Reel"],
+            "topKeywords": [{ "rank": 1, "keyword": "Guru Chandal Yoga 2026", "powerScore": 94,
                     "pros": "Specific yoga; advanced learners." },
                 { "rank": 2, "keyword": "Jupiter in Cancer 2026", "powerScore": 91,
                     "pros": "Top 3 planet searches." },
@@ -1380,17 +1467,28 @@
                     "pros": "High net-worth individuals." },
                 { "rank": 4, "keyword": "Career astrology remedies", "powerScore": 86,
                     "pros": "Professional focus; LinkedIn." },
-                { "rank": 5, "keyword": "Brihaspati puja", "powerScore": 84, "pros": "Puja intent; high revenue." },
-                { "rank": 6, "keyword": "Guru grah shanti", "powerScore": 82, "pros": "Commercial; puja bookings." },
-                { "rank": 7, "keyword": "Jupiter transit 2026", "powerScore": 80, "pros": "Seasonal; evergreen." },
-                { "rank": 8, "keyword": "Vedic astrology career", "powerScore": 78, "pros": "Long-tail; niche." },
-                { "rank": 9, "keyword": "Guru Chandal effects", "powerScore": 76, "pros": "Fear-based; high CTR." },
+                { "rank": 5, "keyword": "Brihaspati puja", "powerScore": 84,
+                    "pros": "Puja intent; high revenue." },
+                { "rank": 6, "keyword": "Guru grah shanti", "powerScore": 82,
+                    "pros": "Commercial; puja bookings." },
+                { "rank": 7, "keyword": "Jupiter transit 2026", "powerScore": 80,
+                    "pros": "Seasonal; evergreen." },
+                { "rank": 8, "keyword": "Vedic astrology career", "powerScore": 78,
+                    "pros": "Long-tail; niche." },
+                { "rank": 9, "keyword": "Guru Chandal effects", "powerScore": 76,
+                    "pros": "Fear-based; high CTR." },
                 { "rank": 10, "keyword": "Rahu-Guru yoga", "powerScore": 74,
-                    "pros": "Combination; material loss fears." }] },
-            { "date": "2026-07-10", "day": "Friday", "event": "Yogini Ekadashi", "campaignTheme": "Fasting & Devotion",
-                "strategySummary": "Publish a detailed 'Ekadashi Fasting Routine' blog and a 60-second katha reel.",
-                "trafficDriver": "High", "postTypeMix": ["Blog", "Instagram Reel", "Facebook Event"],
-                "topKeywords": [{ "rank": 1, "keyword": "Yogini Ekadashi July 2026", "powerScore": 97,
+                    "pros": "Combination; material loss fears." }
+            ]
+        }, {
+            "date": "2026-07-10",
+            "day": "Friday",
+            "event": "Yogini Ekadashi",
+            "campaignTheme": "Fasting & Devotion",
+            "strategySummary": "Publish a detailed 'Ekadashi Fasting Routine' blog and a 60-second katha reel.",
+            "trafficDriver": "High",
+            "postTypeMix": ["Blog", "Instagram Reel", "Facebook Event"],
+            "topKeywords": [{ "rank": 1, "keyword": "Yogini Ekadashi July 2026", "powerScore": 97,
                     "pros": "Festival name; high devotee traffic." },
                 { "rank": 2, "keyword": "Ekadashi vrat list 2026", "powerScore": 93,
                     "pros": "Evergreen; yearly resource." },
@@ -1400,425 +1498,664 @@
                     "pros": "Procedural; users take notes." },
                 { "rank": 5, "keyword": "Padma Purana Ekadashi", "powerScore": 85,
                     "pros": "Scriptural authority." },
-                { "rank": 6, "keyword": "Vishnu puja", "powerScore": 82, "pros": "Vaishnavite community." },
-                { "rank": 7, "keyword": "Ekadashi 2026", "powerScore": 80, "pros": "Comprehensive; backlink potential." },
-                { "rank": 8, "keyword": "Vishnu mantra", "powerScore": 78, "pros": "Audio; repurpose." },
-                { "rank": 9, "keyword": "Yogini Ekadashi date", "powerScore": 76, "pros": "Specific; high CTR." },
-                { "rank": 10, "keyword": "Ekadashi significance", "powerScore": 74, "pros": "Educational; cultural." }] },
-            { "date": "2026-07-11", "day": "Saturday", "event": "Pre-New Moon (Amavasya Prep)",
-                "campaignTheme": "Pitru Karma & Ancestors",
-                "strategySummary": "Send a WhatsApp broadcast about Tarpan and offer a Pitru Dosh consultation.",
-                "trafficDriver": "High", "postTypeMix": ["WhatsApp Broadcast", "Blog", "Facebook Live"],
-                "topKeywords": [{ "rank": 1, "keyword": "Amavasya effects July 2026", "powerScore": 90,
+                { "rank": 6, "keyword": "Vishnu puja", "powerScore": 82,
+                    "pros": "Vaishnavite community." },
+                { "rank": 7, "keyword": "Ekadashi 2026", "powerScore": 80,
+                    "pros": "Comprehensive; backlink potential." },
+                { "rank": 8, "keyword": "Vishnu mantra", "powerScore": 78,
+                    "pros": "Audio; repurpose." },
+                { "rank": 9, "keyword": "Yogini Ekadashi date", "powerScore": 76,
+                    "pros": "Specific; high CTR." },
+                { "rank": 10, "keyword": "Ekadashi significance", "powerScore": 74,
+                    "pros": "Educational; cultural." }
+            ]
+        }, {
+            "date": "2026-07-11",
+            "day": "Saturday",
+            "event": "Pre-New Moon (Amavasya Prep)",
+            "campaignTheme": "Pitru Karma & Ancestors",
+            "strategySummary": "Send a WhatsApp broadcast about Tarpan and offer a Pitru Dosh consultation.",
+            "trafficDriver": "High",
+            "postTypeMix": ["WhatsApp Broadcast", "Blog", "Facebook Live"],
+            "topKeywords": [{ "rank": 1, "keyword": "Amavasya effects July 2026", "powerScore": 90,
                     "pros": "Monthly high-volume event." },
                 { "rank": 2, "keyword": "New Moon in Cancer 2026", "powerScore": 88,
                     "pros": "Broad wellness audience." },
                 { "rank": 3, "keyword": "Pitru dosh nivaran", "powerScore": 86,
                     "pros": "#1 fear-based keyword." },
-                { "rank": 4, "keyword": "Amavasya tarpan", "powerScore": 85, "pros": "Niche; high conversion." },
+                { "rank": 4, "keyword": "Amavasya tarpan", "powerScore": 85,
+                    "pros": "Niche; high conversion." },
                 { "rank": 5, "keyword": "Chandra grah ke upay", "powerScore": 82,
                     "pros": "Moon remedies; mental health." },
                 { "rank": 6, "keyword": "Pitru tarpan vidhi", "powerScore": 80,
                     "pros": "Step-by-step; regional." },
-                { "rank": 7, "keyword": "Amavasya puja", "powerScore": 78, "pros": "General puja; commercial." },
-                { "rank": 8, "keyword": "Pitru shanti", "powerScore": 76, "pros": "High intent; revenue." },
-                { "rank": 9, "keyword": "Chandra grah gochar", "powerScore": 74, "pros": "Astro traffic; general." },
+                { "rank": 7, "keyword": "Amavasya puja", "powerScore": 78,
+                    "pros": "General puja; commercial." },
+                { "rank": 8, "keyword": "Pitru shanti", "powerScore": 76,
+                    "pros": "High intent; revenue." },
+                { "rank": 9, "keyword": "Chandra grah gochar", "powerScore": 74,
+                    "pros": "Astro traffic; general." },
                 { "rank": 10, "keyword": "New Moon astrology 2026", "powerScore": 72,
-                    "pros": "Wellness; journaling." }] },
-            { "date": "2026-07-12", "day": "Sunday", "event": "Ravi Pradosh Vrat + Monthly Shivratri",
-                "campaignTheme": "Shiva Bhakti & Transformation",
-                "strategySummary": "Host a 30-min 'Shivratri Sadhana' guided meditation on YouTube Live.",
-                "trafficDriver": "Very High", "postTypeMix": ["YouTube Live", "Instagram Reel", "Blog"],
-                "topKeywords": [{ "rank": 1, "keyword": "Ravi Pradosh Vrat 2026", "powerScore": 98,
+                    "pros": "Wellness; journaling." }
+            ]
+        }, {
+            "date": "2026-07-12",
+            "day": "Sunday",
+            "event": "Ravi Pradosh Vrat + Monthly Shivratri",
+            "campaignTheme": "Shiva Bhakti & Transformation",
+            "strategySummary": "Host a 30-min 'Shivratri Sadhana' guided meditation on YouTube Live.",
+            "trafficDriver": "Very High",
+            "postTypeMix": ["YouTube Live", "Instagram Reel", "Blog"],
+            "topKeywords": [{ "rank": 1, "keyword": "Ravi Pradosh Vrat 2026", "powerScore": 98,
                     "pros": "Rare Sunday Pradosh; huge spike." },
-                { "rank": 2, "keyword": "Monthly Shivratri July", "powerScore": 95, "pros": "100k+ monthly searches." },
+                { "rank": 2, "keyword": "Monthly Shivratri July", "powerScore": 95,
+                    "pros": "100k+ monthly searches." },
                 { "rank": 3, "keyword": "Shivratri puja vidhi", "powerScore": 92,
                     "pros": "Procedural; high retention." },
-                { "rank": 4, "keyword": "Mahadev aarti", "powerScore": 89, "pros": "Evergreen; high shares." },
-                { "rank": 5, "keyword": "Pradosh vrat katha", "powerScore": 86, "pros": "Storytelling; watch time." },
+                { "rank": 4, "keyword": "Mahadev aarti", "powerScore": 89,
+                    "pros": "Evergreen; high shares." },
+                { "rank": 5, "keyword": "Pradosh vrat katha", "powerScore": 86,
+                    "pros": "Storytelling; watch time." },
                 { "rank": 6, "keyword": "Lord Shiva remedies", "powerScore": 84,
                     "pros": "Commercial; Shani/Shiva." },
-                { "rank": 7, "keyword": "Pradosh vrat date", "powerScore": 82, "pros": "Specific; urgent." },
-                { "rank": 8, "keyword": "Shivratri 2026", "powerScore": 80, "pros": "General; broad." },
-                { "rank": 9, "keyword": "Pradosh puja", "powerScore": 78, "pros": "Detailed; expert positioning." },
-                { "rank": 10, "keyword": "Shiva mantra", "powerScore": 76, "pros": "Audio; high repeat views." }] },
-            { "date": "2026-07-13", "day": "Monday", "event": "Pre-Amavasya Intensifies",
-                "campaignTheme": "Shadow Work & Letting Go",
-                "strategySummary": "Publish '14 Things to Let Go Before Amavasya'. Promote letting-go ritual.",
-                "trafficDriver": "Medium", "postTypeMix": ["Blog", "Instagram Carousel", "Twitter Thread"],
-                "topKeywords": [{ "rank": 1, "keyword": "Ashadha Amavasya 2026", "powerScore": 92,
+                { "rank": 7, "keyword": "Pradosh vrat date", "powerScore": 82,
+                    "pros": "Specific; urgent." },
+                { "rank": 8, "keyword": "Shivratri 2026", "powerScore": 80,
+                    "pros": "General; broad." },
+                { "rank": 9, "keyword": "Pradosh puja", "powerScore": 78,
+                    "pros": "Detailed; expert positioning." },
+                { "rank": 10, "keyword": "Shiva mantra", "powerScore": 76,
+                    "pros": "Audio; high repeat views." }
+            ]
+        }, {
+            "date": "2026-07-13",
+            "day": "Monday",
+            "event": "Pre-Amavasya Intensifies",
+            "campaignTheme": "Shadow Work & Letting Go",
+            "strategySummary": "Publish '14 Things to Let Go Before Amavasya'. Promote letting-go ritual.",
+            "trafficDriver": "Medium",
+            "postTypeMix": ["Blog", "Instagram Carousel", "Twitter Thread"],
+            "topKeywords": [{ "rank": 1, "keyword": "Ashadha Amavasya 2026", "powerScore": 92,
                     "pros": "Specific; great SEO." },
                 { "rank": 2, "keyword": "Amavasya tarpan vidhi", "powerScore": 89,
                     "pros": "High demand; procedural." },
                 { "rank": 3, "keyword": "Pitru dosh nivaran puja", "powerScore": 87,
                     "pros": "Fear-based; high conversion." },
-                { "rank": 4, "keyword": "Pitru puja", "powerScore": 85, "pros": "High revenue." },
-                { "rank": 5, "keyword": "Amavasya significance", "powerScore": 82, "pros": "Educational." },
-                { "rank": 6, "keyword": "Tarpan for ancestors", "powerScore": 80, "pros": "Specific; niche." },
-                { "rank": 7, "keyword": "Amavasya 2026", "powerScore": 78, "pros": "General date." },
-                { "rank": 8, "keyword": "Pitru shanti", "powerScore": 76, "pros": "Commercial." },
-                { "rank": 9, "keyword": "Pitru tarpan vidhi", "powerScore": 74, "pros": "Step-by-step." },
-                { "rank": 10, "keyword": "Amavasya puja", "powerScore": 72, "pros": "Puja items list." }] },
-            { "date": "2026-07-14", "day": "Tuesday", "event": "Ashadha Amavasya + New Moon (Cancer)",
-                "campaignTheme": "New Beginnings & Sankalp",
-                "strategySummary": "Post a guided 'New Moon Manifestation' journaling prompt. Offer a 'Sankalp' consultation.",
-                "trafficDriver": "Maximum", "postTypeMix": ["Instagram Story", "Blog", "YouTube Video"],
-                "topKeywords": [{ "rank": 1, "keyword": "Ashadha Amavasya date", "powerScore": 99,
+                { "rank": 4, "keyword": "Pitru puja", "powerScore": 85,
+                    "pros": "High revenue." },
+                { "rank": 5, "keyword": "Amavasya significance", "powerScore": 82,
+                    "pros": "Educational." },
+                { "rank": 6, "keyword": "Tarpan for ancestors", "powerScore": 80,
+                    "pros": "Specific; niche." },
+                { "rank": 7, "keyword": "Amavasya 2026", "powerScore": 78,
+                    "pros": "General date." },
+                { "rank": 8, "keyword": "Pitru shanti", "powerScore": 76,
+                    "pros": "Commercial." },
+                { "rank": 9, "keyword": "Pitru tarpan vidhi", "powerScore": 74,
+                    "pros": "Step-by-step." },
+                { "rank": 10, "keyword": "Amavasya puja", "powerScore": 72,
+                    "pros": "Puja items list." }
+            ]
+        }, {
+            "date": "2026-07-14",
+            "day": "Tuesday",
+            "event": "Ashadha Amavasya + New Moon (Cancer)",
+            "campaignTheme": "New Beginnings & Sankalp",
+            "strategySummary": "Post a guided 'New Moon Manifestation' journaling prompt. Offer a 'Sankalp' consultation.",
+            "trafficDriver": "Maximum",
+            "postTypeMix": ["Instagram Story", "Blog", "YouTube Video"],
+            "topKeywords": [{ "rank": 1, "keyword": "Ashadha Amavasya date", "powerScore": 99,
                     "pros": "Exact date; peak volume." },
-                { "rank": 2, "keyword": "New Moon July 14", "powerScore": 96, "pros": "Universally searched." },
-                { "rank": 3, "keyword": "Amavasya remedies", "powerScore": 94, "pros": "Conversion ready." },
-                { "rank": 4, "keyword": "Cancer New Moon", "powerScore": 92, "pros": "Sun sign specific." },
-                { "rank": 5, "keyword": "Amavasya ka mahatva", "powerScore": 89, "pros": "Hindi; regional reach." },
-                { "rank": 6, "keyword": "New Moon meditation", "powerScore": 87, "pros": "Wellness; broad." },
-                { "rank": 7, "keyword": "Pitru tarpan", "powerScore": 85, "pros": "Specific ritual." },
+                { "rank": 2, "keyword": "New Moon July 14", "powerScore": 96,
+                    "pros": "Universally searched." },
+                { "rank": 3, "keyword": "Amavasya remedies", "powerScore": 94,
+                    "pros": "Conversion ready." },
+                { "rank": 4, "keyword": "Cancer New Moon", "powerScore": 92,
+                    "pros": "Sun sign specific." },
+                { "rank": 5, "keyword": "Amavasya ka mahatva", "powerScore": 89,
+                    "pros": "Hindi; regional reach." },
+                { "rank": 6, "keyword": "New Moon meditation", "powerScore": 87,
+                    "pros": "Wellness; broad." },
+                { "rank": 7, "keyword": "Pitru tarpan", "powerScore": 85,
+                    "pros": "Specific ritual." },
                 { "rank": 8, "keyword": "Chandra grahan effects", "powerScore": 83,
                     "pros": "Confusion traffic; huge volume." },
-                { "rank": 9, "keyword": "Amavasya puja vidhi", "powerScore": 81, "pros": "Step-by-step." },
-                { "rank": 10, "keyword": "Chandra puja", "powerScore": 78, "pros": "Moon worship." }] },
-            { "date": "2026-07-15", "day": "Wednesday", "event": "Ashadha Gupt Navratri Begins",
-                "campaignTheme": "Shakti Worship & Inner Power",
-                "strategySummary": "Launch '9 Days of Devi' sadhana challenge. Post daily Durga images.",
-                "trafficDriver": "High", "postTypeMix": ["Instagram Reel", "Facebook Event", "Blog"],
-                "topKeywords": [{ "rank": 1, "keyword": "Gupt Navratri July 2026", "powerScore": 97,
+                { "rank": 9, "keyword": "Amavasya puja vidhi", "powerScore": 81,
+                    "pros": "Step-by-step." },
+                { "rank": 10, "keyword": "Chandra puja", "powerScore": 78,
+                    "pros": "Moon worship." }
+            ]
+        }, {
+            "date": "2026-07-15",
+            "day": "Wednesday",
+            "event": "Ashadha Gupt Navratri Begins",
+            "campaignTheme": "Shakti Worship & Inner Power",
+            "strategySummary": "Launch '9 Days of Devi' sadhana challenge. Post daily Durga images.",
+            "trafficDriver": "High",
+            "postTypeMix": ["Instagram Reel", "Facebook Event", "Blog"],
+            "topKeywords": [{ "rank": 1, "keyword": "Gupt Navratri July 2026", "powerScore": 97,
                     "pros": "Unique 'Gupt'; hardcore devotees." },
-                { "rank": 2, "keyword": "Ashadha Gupt Navratri", "powerScore": 94, "pros": "Specific; alternative." },
-                { "rank": 3, "keyword": "Maa Durga puja", "powerScore": 91, "pros": "High commercial." },
-                { "rank": 4, "keyword": "Gupt Navratri dates", "powerScore": 89, "pros": "9 days of traffic." },
-                { "rank": 5, "keyword": "Shakti upasana", "powerScore": 87, "pros": "Spiritual." },
-                { "rank": 6, "keyword": "Navratri vrat vidhi", "powerScore": 85, "pros": "Procedural." },
-                { "rank": 7, "keyword": "Gupt Navratri significance", "powerScore": 82, "pros": "Educational." },
-                { "rank": 8, "keyword": "Durga mantra", "powerScore": 80, "pros": "Audio." },
-                { "rank": 9, "keyword": "Mahavidya sadhana", "powerScore": 78, "pros": "Deep dive; high dwell time." },
-                { "rank": 10, "keyword": "Navratri 2026", "powerScore": 76, "pros": "General; broad." }] },
-            { "date": "2026-07-16", "day": "Thursday", "event": "Jagannath Rath Yatra + Karka Sankranti",
-                "campaignTheme": "Massive Festival & Sun Transit",
-                "strategySummary": "Go LIVE from the nearest Jagannath temple (or share virtual darshan). Publish Sankranti donation guide.",
-                "trafficDriver": "Maximum", "postTypeMix": ["YouTube Live", "Instagram Reel", "Blog"],
-                "topKeywords": [{ "rank": 1, "keyword": "Jagannath Rath Yatra 2026", "powerScore": 99,
+                { "rank": 2, "keyword": "Ashadha Gupt Navratri", "powerScore": 94,
+                    "pros": "Specific; alternative." },
+                { "rank": 3, "keyword": "Maa Durga puja", "powerScore": 91,
+                    "pros": "High commercial." },
+                { "rank": 4, "keyword": "Gupt Navratri dates", "powerScore": 89,
+                    "pros": "9 days of traffic." },
+                { "rank": 5, "keyword": "Shakti upasana", "powerScore": 87,
+                    "pros": "Spiritual." },
+                { "rank": 6, "keyword": "Navratri vrat vidhi", "powerScore": 85,
+                    "pros": "Procedural." },
+                { "rank": 7, "keyword": "Gupt Navratri significance", "powerScore": 82,
+                    "pros": "Educational." },
+                { "rank": 8, "keyword": "Durga mantra", "powerScore": 80,
+                    "pros": "Audio." },
+                { "rank": 9, "keyword": "Mahavidya sadhana", "powerScore": 78,
+                    "pros": "Deep dive; high dwell time." },
+                { "rank": 10, "keyword": "Navratri 2026", "powerScore": 76,
+                    "pros": "General; broad." }
+            ]
+        }, {
+            "date": "2026-07-16",
+            "day": "Thursday",
+            "event": "Jagannath Rath Yatra + Karka Sankranti",
+            "campaignTheme": "Massive Festival & Sun Transit",
+            "strategySummary": "Go LIVE from the nearest Jagannath temple (or share virtual darshan). Publish Sankranti donation guide.",
+            "trafficDriver": "Maximum",
+            "postTypeMix": ["YouTube Live", "Instagram Reel", "Blog"],
+            "topKeywords": [{ "rank": 1, "keyword": "Jagannath Rath Yatra 2026", "powerScore": 99,
                     "pros": "Top 3 Hindu festival keywords." },
                 { "rank": 2, "keyword": "Karka Sankranti 2026", "powerScore": 97,
                     "pros": "Surya transit; mass astro traffic." },
-                { "rank": 3, "keyword": "Puri Rath Yatra live", "powerScore": 95, "pros": "Live intent; high CTR." },
+                { "rank": 3, "keyword": "Puri Rath Yatra live", "powerScore": 95,
+                    "pros": "Live intent; high CTR." },
                 { "rank": 4, "keyword": "Sankranti punya kaal", "powerScore": 93,
                     "pros": "Auspicious timing seekers." },
-                { "rank": 5, "keyword": "Lord Jagannath puja", "powerScore": 90, "pros": "Commercial." },
-                { "rank": 6, "keyword": "Rath Yatra date", "powerScore": 88, "pros": "Date-specific." },
-                { "rank": 7, "keyword": "Surya gochar Karka", "powerScore": 86, "pros": "Native; expert." },
-                { "rank": 8, "keyword": "Ulto Rath Yatra", "powerScore": 84, "pros": "Return journey; week later." },
+                { "rank": 5, "keyword": "Lord Jagannath puja", "powerScore": 90,
+                    "pros": "Commercial." },
+                { "rank": 6, "keyword": "Rath Yatra date", "powerScore": 88,
+                    "pros": "Date-specific." },
+                { "rank": 7, "keyword": "Surya gochar Karka", "powerScore": 86,
+                    "pros": "Native; expert." },
+                { "rank": 8, "keyword": "Ulto Rath Yatra", "powerScore": 84,
+                    "pros": "Return journey; week later." },
                 { "rank": 9, "keyword": "Jagannath temple darshan", "powerScore": 82,
                     "pros": "Emotional; high shares." },
                 { "rank": 10, "keyword": "Rath Yatra 2026 live", "powerScore": 80,
-                    "pros": "Live streaming intent." }] },
-            { "date": "2026-07-17", "day": "Friday", "event": "Aniruddha Vinayak Chaturthi + Sun enters Cancer",
-                "campaignTheme": "Ganesh Remedy & Solar Shift",
-                "strategySummary": "Publish 'Ganesh Mantra for Career' video. Push Sun transit Cancer articles.",
-                "trafficDriver": "High", "postTypeMix": ["YouTube Video", "Instagram Reel", "Blog"],
-                "topKeywords": [{ "rank": 1, "keyword": "Sun in Cancer 2026", "powerScore": 96,
+                    "pros": "Live streaming intent." }
+            ]
+        }, {
+            "date": "2026-07-17",
+            "day": "Friday",
+            "event": "Aniruddha Vinayak Chaturthi + Sun enters Cancer",
+            "campaignTheme": "Ganesh Remedy & Solar Shift",
+            "strategySummary": "Publish 'Ganesh Mantra for Career' video. Push Sun transit Cancer articles.",
+            "trafficDriver": "High",
+            "postTypeMix": ["YouTube Video", "Instagram Reel", "Blog"],
+            "topKeywords": [{ "rank": 1, "keyword": "Sun in Cancer 2026", "powerScore": 96,
                     "pros": "Sun transit; huge annual traffic." },
-                { "rank": 2, "keyword": "Surya gochar Karka", "powerScore": 94, "pros": "Native; high SEO." },
+                { "rank": 2, "keyword": "Surya gochar Karka", "powerScore": 94,
+                    "pros": "Native; high SEO." },
                 { "rank": 3, "keyword": "Aniruddha Vinayak Chaturthi", "powerScore": 92,
                     "pros": "Ganesh specific; devotional." },
                 { "rank": 4, "keyword": "Surya grah ke upay", "powerScore": 90,
                     "pros": "Fear-based conversion." },
-                { "rank": 5, "keyword": "Cancer zodiac July", "powerScore": 87, "pros": "Zodiac casuals." },
-                { "rank": 6, "keyword": "Ganesh Chaturthi", "powerScore": 85, "pros": "General; broad." },
-                { "rank": 7, "keyword": "Vinayak puja", "powerScore": 83, "pros": "Specific ritual." },
-                { "rank": 8, "keyword": "Surya transit Cancer", "powerScore": 81, "pros": "Detailed transit." },
-                { "rank": 9, "keyword": "Cancer horoscope July", "powerScore": 79, "pros": "Horoscope; mass." },
-                { "rank": 10, "keyword": "Surya mantra", "powerScore": 77, "pros": "Chanting audio." }] },
-            { "date": "2026-07-18", "day": "Saturday", "event": "Gupt Navratri Day 4",
-                "campaignTheme": "Feminine Energy & Protection",
-                "strategySummary": "Share Maa Kushmanda story. Offer a 'Kavach' (protective shield) PDF.",
-                "trafficDriver": "Medium", "postTypeMix": ["Instagram Carousel", "Facebook Post", "WhatsApp PDF"],
-                "topKeywords": [{ "rank": 1, "keyword": "Gupt Navratri day 4", "powerScore": 90,
+                { "rank": 5, "keyword": "Cancer zodiac July", "powerScore": 87,
+                    "pros": "Zodiac casuals." },
+                { "rank": 6, "keyword": "Ganesh Chaturthi", "powerScore": 85,
+                    "pros": "General; broad." },
+                { "rank": 7, "keyword": "Vinayak puja", "powerScore": 83,
+                    "pros": "Specific ritual." },
+                { "rank": 8, "keyword": "Surya transit Cancer", "powerScore": 81,
+                    "pros": "Detailed transit." },
+                { "rank": 9, "keyword": "Cancer horoscope July", "powerScore": 79,
+                    "pros": "Horoscope; mass." },
+                { "rank": 10, "keyword": "Surya mantra", "powerScore": 77,
+                    "pros": "Chanting audio." }
+            ]
+        }, {
+            "date": "2026-07-18",
+            "day": "Saturday",
+            "event": "Gupt Navratri Day 4",
+            "campaignTheme": "Feminine Energy & Protection",
+            "strategySummary": "Share Maa Kushmanda story. Offer a 'Kavach' (protective shield) PDF.",
+            "trafficDriver": "Medium",
+            "postTypeMix": ["Instagram Carousel", "Facebook Post", "WhatsApp PDF"],
+            "topKeywords": [{ "rank": 1, "keyword": "Gupt Navratri day 4", "powerScore": 90,
                     "pros": "Day-specific series." },
-                { "rank": 2, "keyword": "Navratri puja vidhi", "powerScore": 87, "pros": "Puja procedure." },
-                { "rank": 3, "keyword": "Maa Durga aarti", "powerScore": 85, "pros": "Lyrics; evergreen." },
-                { "rank": 4, "keyword": "Shakti peeth", "powerScore": 83, "pros": "Pilgrimage traffic." },
-                { "rank": 5, "keyword": "Durga mantra", "powerScore": 82, "pros": "Audio." },
-                { "rank": 6, "keyword": "Navratri colours", "powerScore": 80, "pros": "Social media cross-over." },
-                { "rank": 7, "keyword": "Gupt Navratri 2026", "powerScore": 78, "pros": "Main keyword." },
-                { "rank": 8, "keyword": "Navdurga", "powerScore": 76, "pros": "9 forms; educational." },
-                { "rank": 9, "keyword": "Durga chalisa", "powerScore": 75, "pros": "YouTube retention." },
-                { "rank": 10, "keyword": "Shakti upasana", "powerScore": 74, "pros": "Spiritual." }] },
-            { "date": "2026-07-19", "day": "Sunday", "event": "Gupt Navratri Day 5",
-                "campaignTheme": "Devotion & Gratitude",
-                "strategySummary": "Run a 'Share your Devi Experience' UGC contest on Instagram.",
-                "trafficDriver": "Medium", "postTypeMix": ["Instagram UGC Contest", "Facebook Group", "YouTube Live"],
-                "topKeywords": [{ "rank": 1, "keyword": "Gupt Navratri 2026", "powerScore": 88,
+                { "rank": 2, "keyword": "Navratri puja vidhi", "powerScore": 87,
+                    "pros": "Puja procedure." },
+                { "rank": 3, "keyword": "Maa Durga aarti", "powerScore": 85,
+                    "pros": "Lyrics; evergreen." },
+                { "rank": 4, "keyword": "Shakti peeth", "powerScore": 83,
+                    "pros": "Pilgrimage traffic." },
+                { "rank": 5, "keyword": "Durga mantra", "powerScore": 82,
+                    "pros": "Audio." },
+                { "rank": 6, "keyword": "Navratri colours", "powerScore": 80,
+                    "pros": "Social media cross-over." },
+                { "rank": 7, "keyword": "Gupt Navratri 2026", "powerScore": 78,
+                    "pros": "Main keyword." },
+                { "rank": 8, "keyword": "Navdurga", "powerScore": 76,
+                    "pros": "9 forms; educational." },
+                { "rank": 9, "keyword": "Durga chalisa", "powerScore": 75,
+                    "pros": "YouTube retention." },
+                { "rank": 10, "keyword": "Shakti upasana", "powerScore": 74,
+                    "pros": "Spiritual." }
+            ]
+        }, {
+            "date": "2026-07-19",
+            "day": "Sunday",
+            "event": "Gupt Navratri Day 5",
+            "campaignTheme": "Devotion & Gratitude",
+            "strategySummary": "Run a 'Share your Devi Experience' UGC contest on Instagram.",
+            "trafficDriver": "Medium",
+            "postTypeMix": ["Instagram UGC Contest", "Facebook Group", "YouTube Live"],
+            "topKeywords": [{ "rank": 1, "keyword": "Gupt Navratri 2026", "powerScore": 88,
                     "pros": "Continued buzz." },
-                { "rank": 2, "keyword": "Navdurga", "powerScore": 85, "pros": "9 forms; education." },
-                { "rank": 3, "keyword": "Maa Skandamata puja", "powerScore": 83, "pros": "Specific day puja." },
-                { "rank": 4, "keyword": "Navratri vrat", "powerScore": 82, "pros": "Fasting tips." },
-                { "rank": 5, "keyword": "Durga chalisa", "powerScore": 80, "pros": "Evergreen." },
+                { "rank": 2, "keyword": "Navdurga", "powerScore": 85,
+                    "pros": "9 forms; education." },
+                { "rank": 3, "keyword": "Maa Skandamata puja", "powerScore": 83,
+                    "pros": "Specific day puja." },
+                { "rank": 4, "keyword": "Navratri vrat", "powerScore": 82,
+                    "pros": "Fasting tips." },
+                { "rank": 5, "keyword": "Durga chalisa", "powerScore": 80,
+                    "pros": "Evergreen." },
                 { "rank": 6, "keyword": "Gupt Navratri significance", "powerScore": 78,
                     "pros": "Anchor content." },
-                { "rank": 7, "keyword": "Navratri fifth day", "powerScore": 76, "pros": "Series consistency." },
-                { "rank": 8, "keyword": "Durga saptashati", "powerScore": 75, "pros": "Holy book; expert." },
-                { "rank": 9, "keyword": "Maa Durga blessings", "powerScore": 74, "pros": "Emotional share." },
-                { "rank": 10, "keyword": "Shakti sadhana", "powerScore": 72, "pros": "Niche; dedicated." }] },
-            { "date": "2026-07-20", "day": "Monday", "event": "Sun enters Leo", "campaignTheme": "Leadership & Confidence",
-                "strategySummary": "Publish 'Leo Season Career Horoscope' for CEOs/Entrepreneurs. Target LinkedIn heavily.",
-                "trafficDriver": "High", "postTypeMix": ["LinkedIn Article", "Blog", "YouTube Video"],
-                "topKeywords": [{ "rank": 1, "keyword": "Sun in Leo 2026", "powerScore": 96,
+                { "rank": 7, "keyword": "Navratri fifth day", "powerScore": 76,
+                    "pros": "Series consistency." },
+                { "rank": 8, "keyword": "Durga saptashati", "powerScore": 75,
+                    "pros": "Holy book; expert." },
+                { "rank": 9, "keyword": "Maa Durga blessings", "powerScore": 74,
+                    "pros": "Emotional share." },
+                { "rank": 10, "keyword": "Shakti sadhana", "powerScore": 72,
+                    "pros": "Niche; dedicated." }
+            ]
+        }, {
+            "date": "2026-07-20",
+            "day": "Monday",
+            "event": "Sun enters Leo",
+            "campaignTheme": "Leadership & Confidence",
+            "strategySummary": "Publish 'Leo Season Career Horoscope' for CEOs/Entrepreneurs. Target LinkedIn heavily.",
+            "trafficDriver": "High",
+            "postTypeMix": ["LinkedIn Article", "Blog", "YouTube Video"],
+            "topKeywords": [{ "rank": 1, "keyword": "Sun in Leo 2026", "powerScore": 96,
                     "pros": "Sun in own sign; extremely powerful." },
-                { "rank": 2, "keyword": "Surya gochar Simha", "powerScore": 94, "pros": "Native; regional." },
+                { "rank": 2, "keyword": "Surya gochar Simha", "powerScore": 94,
+                    "pros": "Native; regional." },
                 { "rank": 3, "keyword": "Sun in Leo career", "powerScore": 92,
                     "pros": "Professional intent; LinkedIn." },
-                { "rank": 4, "keyword": "Sun transit July 20", "powerScore": 90, "pros": "Date-specific; urgent." },
-                { "rank": 5, "keyword": "Leo zodiac July", "powerScore": 87, "pros": "Mass interest." },
-                { "rank": 6, "keyword": "Surya grah upay", "powerScore": 85, "pros": "High commercial." },
-                { "rank": 7, "keyword": "Simha rashi July", "powerScore": 83, "pros": "India traffic." },
-                { "rank": 8, "keyword": "Leo horoscope", "powerScore": 81, "pros": "General." },
-                { "rank": 9, "keyword": "Surya mantra", "powerScore": 79, "pros": "Audio." },
-                { "rank": 10, "keyword": "Surya grah shanti", "powerScore": 77, "pros": "Puja intent." }] },
-            { "date": "2026-07-21", "day": "Tuesday", "event": "Gupt Navratri Day 7 (Kalratri)",
-                "campaignTheme": "Overcoming Fears",
-                "strategySummary": "Post powerful 'Kalratri Sadhana' tips. Share a midnight meditation timer.",
-                "trafficDriver": "Medium", "postTypeMix": ["Instagram Story", "Blog", "YouTube Short"],
-                "topKeywords": [{ "rank": 1, "keyword": "Maa Kalratri", "powerScore": 88,
+                { "rank": 4, "keyword": "Sun transit July 20", "powerScore": 90,
+                    "pros": "Date-specific; urgent." },
+                { "rank": 5, "keyword": "Leo zodiac July", "powerScore": 87,
+                    "pros": "Mass interest." },
+                { "rank": 6, "keyword": "Surya grah upay", "powerScore": 85,
+                    "pros": "High commercial." },
+                { "rank": 7, "keyword": "Simha rashi July", "powerScore": 83,
+                    "pros": "India traffic." },
+                { "rank": 8, "keyword": "Leo horoscope", "powerScore": 81,
+                    "pros": "General." },
+                { "rank": 9, "keyword": "Surya mantra", "powerScore": 79,
+                    "pros": "Audio." },
+                { "rank": 10, "keyword": "Surya grah shanti", "powerScore": 77,
+                    "pros": "Puja intent." }
+            ]
+        }, {
+            "date": "2026-07-21",
+            "day": "Tuesday",
+            "event": "Gupt Navratri Day 7 (Kalratri)",
+            "campaignTheme": "Overcoming Fears",
+            "strategySummary": "Post powerful 'Kalratri Sadhana' tips. Share a midnight meditation timer.",
+            "trafficDriver": "Medium",
+            "postTypeMix": ["Instagram Story", "Blog", "YouTube Short"],
+            "topKeywords": [{ "rank": 1, "keyword": "Maa Kalratri", "powerScore": 88,
                     "pros": "Fearsome form; high curiosity." },
-                { "rank": 2, "keyword": "Navratri seventh day", "powerScore": 85, "pros": "Day count; series." },
-                { "rank": 3, "keyword": "Gupt Navratri puja", "powerScore": 83, "pros": "Event name." },
-                { "rank": 4, "keyword": "Navratri significance", "powerScore": 82, "pros": "Educational." },
-                { "rank": 5, "keyword": "Durga saptashati", "powerScore": 80, "pros": "Holy book; authority." },
-                { "rank": 6, "keyword": "Shakti worship", "powerScore": 78, "pros": "Ritual." },
-                { "rank": 7, "keyword": "Kalratri puja", "powerScore": 76, "pros": "Specific puja." },
-                { "rank": 8, "keyword": "Gupt Navratri 2026", "powerScore": 75, "pros": "Event." },
-                { "rank": 9, "keyword": "Navratri day 7", "powerScore": 74, "pros": "Consistency." },
-                { "rank": 10, "keyword": "Maa Durga blessings", "powerScore": 72, "pros": "Emotional." }] },
-            { "date": "2026-07-22", "day": "Wednesday", "event": "Bhadli Navami (Abujh Muhurat)",
-                "campaignTheme": "Auspicious Timings & Marriages",
-                "strategySummary": "Create a guide on 'Best Muhurat for Marriage in 2026'. Promote consultation for fixing dates.",
-                "trafficDriver": "High", "postTypeMix": ["Blog", "Instagram Carousel", "YouTube Video"],
-                "topKeywords": [{ "rank": 1, "keyword": "Abujh Muhurat July 2026", "powerScore": 96,
+                { "rank": 2, "keyword": "Navratri seventh day", "powerScore": 85,
+                    "pros": "Day count; series." },
+                { "rank": 3, "keyword": "Gupt Navratri puja", "powerScore": 83,
+                    "pros": "Event name." },
+                { "rank": 4, "keyword": "Navratri significance", "powerScore": 82,
+                    "pros": "Educational." },
+                { "rank": 5, "keyword": "Durga saptashati", "powerScore": 80,
+                    "pros": "Holy book; authority." },
+                { "rank": 6, "keyword": "Shakti worship", "powerScore": 78,
+                    "pros": "Ritual." },
+                { "rank": 7, "keyword": "Kalratri puja", "powerScore": 76,
+                    "pros": "Specific puja." },
+                { "rank": 8, "keyword": "Gupt Navratri 2026", "powerScore": 75,
+                    "pros": "Event." },
+                { "rank": 9, "keyword": "Navratri day 7", "powerScore": 74,
+                    "pros": "Consistency." },
+                { "rank": 10, "keyword": "Maa Durga blessings", "powerScore": 72,
+                    "pros": "Emotional." }
+            ]
+        }, {
+            "date": "2026-07-22",
+            "day": "Wednesday",
+            "event": "Bhadli Navami (Abujh Muhurat)",
+            "campaignTheme": "Auspicious Timings & Marriages",
+            "strategySummary": "Create a guide on 'Best Muhurat for Marriage in 2026'. Promote consultation for fixing dates.",
+            "trafficDriver": "High",
+            "postTypeMix": ["Blog", "Instagram Carousel", "YouTube Video"],
+            "topKeywords": [{ "rank": 1, "keyword": "Abujh Muhurat July 2026", "powerScore": 96,
                     "pros": "Marriage; high commercial value." },
-                { "rank": 2, "keyword": "Bhadli Navami 2026", "powerScore": 93, "pros": "Specific festival." },
+                { "rank": 2, "keyword": "Bhadli Navami 2026", "powerScore": 93,
+                    "pros": "Specific festival." },
                 { "rank": 3, "keyword": "Abujh Muhurat for marriage", "powerScore": 91,
                     "pros": "Very high conversion." },
                 { "rank": 4, "keyword": "Auspicious muhurat today", "powerScore": 89,
                     "pros": "Urgent 'today' traffic." },
-                { "rank": 5, "keyword": "Bhadli Navami significance", "powerScore": 86, "pros": "Educational." },
-                { "rank": 6, "keyword": "Navami puja", "powerScore": 84, "pros": "General puja." },
-                { "rank": 7, "keyword": "Abujh Muhurat 2026", "powerScore": 82, "pros": "Year-specific." },
-                { "rank": 8, "keyword": "Muhurat today", "powerScore": 80, "pros": "Daily search." },
-                { "rank": 9, "keyword": "Bhadli Navami date", "powerScore": 78, "pros": "Date specific." },
-                { "rank": 10, "keyword": "Navami significance", "powerScore": 76, "pros": "Event." }] },
-            { "date": "2026-07-23", "day": "Thursday", "event": "Pre-Devshayani Ekadashi",
-                "campaignTheme": "Spiritual Discipline",
-                "strategySummary": "Explain the importance of Chaturmas (4-month holy period). Offer a 'Discipline Challenge'.",
-                "trafficDriver": "High", "postTypeMix": ["Blog", "WhatsApp Group Challenge", "Instagram Reel"],
-                "topKeywords": [{ "rank": 1, "keyword": "Devshayani Ekadashi 2026", "powerScore": 96,
+                { "rank": 5, "keyword": "Bhadli Navami significance", "powerScore": 86,
+                    "pros": "Educational." },
+                { "rank": 6, "keyword": "Navami puja", "powerScore": 84,
+                    "pros": "General puja." },
+                { "rank": 7, "keyword": "Abujh Muhurat 2026", "powerScore": 82,
+                    "pros": "Year-specific." },
+                { "rank": 8, "keyword": "Muhurat today", "powerScore": 80,
+                    "pros": "Daily search." },
+                { "rank": 9, "keyword": "Bhadli Navami date", "powerScore": 78,
+                    "pros": "Date specific." },
+                { "rank": 10, "keyword": "Navami significance", "powerScore": 76,
+                    "pros": "Event." }
+            ]
+        }, {
+            "date": "2026-07-23",
+            "day": "Thursday",
+            "event": "Pre-Devshayani Ekadashi",
+            "campaignTheme": "Spiritual Discipline",
+            "strategySummary": "Explain the importance of Chaturmas (4-month holy period). Offer a 'Discipline Challenge'.",
+            "trafficDriver": "High",
+            "postTypeMix": ["Blog", "WhatsApp Group Challenge", "Instagram Reel"],
+            "topKeywords": [{ "rank": 1, "keyword": "Devshayani Ekadashi 2026", "powerScore": 96,
                     "pros": "Major Ekadashi; Vishnu sleeps." },
                 { "rank": 2, "keyword": "Chaturmas start", "powerScore": 94,
                     "pros": "4-month daily search opportunity." },
-                { "rank": 3, "keyword": "Ekadashi significance", "powerScore": 91, "pros": "Educational." },
-                { "rank": 4, "keyword": "Vishnu puja", "powerScore": 89, "pros": "Commercial." },
-                { "rank": 5, "keyword": "Vishnu Sahasranamam", "powerScore": 87, "pros": "Chanting video." },
-                { "rank": 6, "keyword": "Devshayani Ekadashi date", "powerScore": 85, "pros": "Specific." },
-                { "rank": 7, "keyword": "Ekadashi vrat", "powerScore": 83, "pros": "Procedure." },
-                { "rank": 8, "keyword": "Chaturmas 2026", "powerScore": 82, "pros": "Year-specific." },
-                { "rank": 9, "keyword": "Vishnu mantra", "powerScore": 80, "pros": "Audio." },
-                { "rank": 10, "keyword": "Ekadashi July 2026", "powerScore": 78, "pros": "General." }] },
-            { "date": "2026-07-24", "day": "Friday", "event": "Mercury turns Direct",
-                "campaignTheme": "Communication & Clarity",
-                "strategySummary": "Publish 'Mercury Direct: How to move forward'. Push consultation for stalled projects.",
-                "trafficDriver": "Maximum", "postTypeMix": ["Blog", "LinkedIn Post", "YouTube Short"],
-                "topKeywords": [{ "rank": 1, "keyword": "Mercury direct July 24", "powerScore": 98,
+                { "rank": 3, "keyword": "Ekadashi significance", "powerScore": 91,
+                    "pros": "Educational." },
+                { "rank": 4, "keyword": "Vishnu puja", "powerScore": 89,
+                    "pros": "Commercial." },
+                { "rank": 5, "keyword": "Vishnu Sahasranamam", "powerScore": 87,
+                    "pros": "Chanting video." },
+                { "rank": 6, "keyword": "Devshayani Ekadashi date", "powerScore": 85,
+                    "pros": "Specific." },
+                { "rank": 7, "keyword": "Ekadashi vrat", "powerScore": 83,
+                    "pros": "Procedure." },
+                { "rank": 8, "keyword": "Chaturmas 2026", "powerScore": 82,
+                    "pros": "Year-specific." },
+                { "rank": 9, "keyword": "Vishnu mantra", "powerScore": 80,
+                    "pros": "Audio." },
+                { "rank": 10, "keyword": "Ekadashi July 2026", "powerScore": 78,
+                    "pros": "General." }
+            ]
+        }, {
+            "date": "2026-07-24",
+            "day": "Friday",
+            "event": "Mercury turns Direct",
+            "campaignTheme": "Communication & Clarity",
+            "strategySummary": "Publish 'Mercury Direct: How to move forward'. Push consultation for stalled projects.",
+            "trafficDriver": "Maximum",
+            "postTypeMix": ["Blog", "LinkedIn Post", "YouTube Short"],
+            "topKeywords": [{ "rank": 1, "keyword": "Mercury direct July 24", "powerScore": 98,
                     "pros": "Relief-based; high emotions." },
-                { "rank": 2, "keyword": "Mercury retrograde ends", "powerScore": 96, "pros": "Huge spike." },
-                { "rank": 3, "keyword": "Budh margi July 2026", "powerScore": 93, "pros": "Native." },
-                { "rank": 4, "keyword": "Budh grah shanti", "powerScore": 91, "pros": "Commercial." },
-                { "rank": 5, "keyword": "Mercury direct effects", "powerScore": 89, "pros": "Detailed." },
-                { "rank": 6, "keyword": "Budh mantra", "powerScore": 87, "pros": "Audio." },
+                { "rank": 2, "keyword": "Mercury retrograde ends", "powerScore": 96,
+                    "pros": "Huge spike." },
+                { "rank": 3, "keyword": "Budh margi July 2026", "powerScore": 93,
+                    "pros": "Native." },
+                { "rank": 4, "keyword": "Budh grah shanti", "powerScore": 91,
+                    "pros": "Commercial." },
+                { "rank": 5, "keyword": "Mercury direct effects", "powerScore": 89,
+                    "pros": "Detailed." },
+                { "rank": 6, "keyword": "Budh mantra", "powerScore": 87,
+                    "pros": "Audio." },
                 { "rank": 7, "keyword": "Communication astrology", "powerScore": 85,
                     "pros": "Professional angle; LinkedIn gold." },
-                { "rank": 8, "keyword": "Mercury direct 2026", "powerScore": 83, "pros": "Year-specific." },
-                { "rank": 9, "keyword": "Budh grah upay", "powerScore": 81, "pros": "Remedies." },
-                { "rank": 10, "keyword": "Mercury transit", "powerScore": 79, "pros": "General." }] },
-            { "date": "2026-07-25", "day": "Saturday", "event": "Devshayani Ekadashi",
-                "campaignTheme": "Chaturmas Begins",
-                "strategySummary": "Host a virtual 'Vishnu Sahasranamam' chanting session on YouTube.",
-                "trafficDriver": "Maximum", "postTypeMix": ["YouTube Video", "Blog", "Instagram Story"],
-                "topKeywords": [{ "rank": 1, "keyword": "Devshayani Ekadashi 2026", "powerScore": 99,
+                { "rank": 8, "keyword": "Mercury direct 2026", "powerScore": 83,
+                    "pros": "Year-specific." },
+                { "rank": 9, "keyword": "Budh grah upay", "powerScore": 81,
+                    "pros": "Remedies." },
+                { "rank": 10, "keyword": "Mercury transit", "powerScore": 79,
+                    "pros": "General." }
+            ]
+        }, {
+            "date": "2026-07-25",
+            "day": "Saturday",
+            "event": "Devshayani Ekadashi",
+            "campaignTheme": "Chaturmas Begins",
+            "strategySummary": "Host a virtual 'Vishnu Sahasranamam' chanting session on YouTube.",
+            "trafficDriver": "Maximum",
+            "postTypeMix": ["YouTube Video", "Blog", "Instagram Story"],
+            "topKeywords": [{ "rank": 1, "keyword": "Devshayani Ekadashi 2026", "powerScore": 99,
                     "pros": "Peak Ekadashi volume." },
-                { "rank": 2, "keyword": "Chaturmas begins", "powerScore": 96, "pros": "Annual event." },
-                { "rank": 3, "keyword": "Ekadashi vrat", "powerScore": 94, "pros": "Procedure." },
+                { "rank": 2, "keyword": "Chaturmas begins", "powerScore": 96,
+                    "pros": "Annual event." },
+                { "rank": 3, "keyword": "Ekadashi vrat", "powerScore": 94,
+                    "pros": "Procedure." },
                 { "rank": 4, "keyword": "Devshayani Ekadashi katha", "powerScore": 92,
                     "pros": "Storytelling." },
                 { "rank": 5, "keyword": "Vishnu Sahasranamam", "powerScore": 90,
                     "pros": "20+ min watch time." },
-                { "rank": 6, "keyword": "Vishnu puja", "powerScore": 88, "pros": "Commercial." },
-                { "rank": 7, "keyword": "Chaturmas 2026", "powerScore": 86, "pros": "Date-specific." },
-                { "rank": 8, "keyword": "Ekadashi significance", "powerScore": 84, "pros": "Educational." },
-                { "rank": 9, "keyword": "Vishnu mantra", "powerScore": 82, "pros": "Audio." },
-                { "rank": 10, "keyword": "Ekadashi 2026", "powerScore": 80, "pros": "General." }] },
-            { "date": "2026-07-26", "day": "Sunday", "event": "North Node (Rahu) enters Aquarius",
-                "campaignTheme": "Massive Karmic Shift",
-                "strategySummary": "Publish a deeply detailed guide on 'Rahu in Aquarius for 18 Months'. High value authority content.",
-                "trafficDriver": "Maximum", "postTypeMix": ["Blog (Deep Dive)", "YouTube Video", "LinkedIn Article"],
-                "topKeywords": [{ "rank": 1, "keyword": "Rahu transit July 26", "powerScore": 99,
+                { "rank": 6, "keyword": "Vishnu puja", "powerScore": 88,
+                    "pros": "Commercial." },
+                { "rank": 7, "keyword": "Chaturmas 2026", "powerScore": 86,
+                    "pros": "Date-specific." },
+                { "rank": 8, "keyword": "Ekadashi significance", "powerScore": 84,
+                    "pros": "Educational." },
+                { "rank": 9, "keyword": "Vishnu mantra", "powerScore": 82,
+                    "pros": "Audio." },
+                { "rank": 10, "keyword": "Ekadashi 2026", "powerScore": 80,
+                    "pros": "General." }
+            ]
+        }, {
+            "date": "2026-07-26",
+            "day": "Sunday",
+            "event": "North Node (Rahu) enters Aquarius",
+            "campaignTheme": "Massive Karmic Shift",
+            "strategySummary": "Publish a deeply detailed guide on 'Rahu in Aquarius for 18 Months'. High value authority content.",
+            "trafficDriver": "Maximum",
+            "postTypeMix": ["Blog (Deep Dive)", "YouTube Video", "LinkedIn Article"],
+            "topKeywords": [{ "rank": 1, "keyword": "Rahu transit July 26", "powerScore": 99,
                     "pros": "#1 most searched transit." },
                 { "rank": 2, "keyword": "North Node in Aquarius 2026", "powerScore": 97,
                     "pros": "Western term; broad." },
-                { "rank": 3, "keyword": "Rahu gochar Kumbh 2026", "powerScore": 95, "pros": "Native; expert." },
+                { "rank": 3, "keyword": "Rahu gochar Kumbh 2026", "powerScore": 95,
+                    "pros": "Native; expert." },
                 { "rank": 4, "keyword": "Rahu grah ke upay", "powerScore": 93,
                     "pros": "Massive commercial (gemstones)." },
-                { "rank": 5, "keyword": "Rahu remedies", "powerScore": 91, "pros": "High conversion." },
+                { "rank": 5, "keyword": "Rahu remedies", "powerScore": 91,
+                    "pros": "High conversion." },
                 { "rank": 6, "keyword": "Aquarius zodiac 2026", "powerScore": 88,
                     "pros": "Sun sign predictions." },
                 { "rank": 7, "keyword": "Kumbh rashi predictions", "powerScore": 86,
                     "pros": "India traffic." },
-                { "rank": 8, "keyword": "Rahu in Aquarius", "powerScore": 84, "pros": "Detailed placement." },
-                { "rank": 9, "keyword": "Rahu grah shanti", "powerScore": 82, "pros": "Puja." },
-                { "rank": 10, "keyword": "Rahu mantra", "powerScore": 80, "pros": "Audio." }] },
-            { "date": "2026-07-27", "day": "Monday", "event": "Saturn Retrograde in Pisces begins",
-                "campaignTheme": "Karma & Long-term Discipline",
-                "strategySummary": "Create a 'Saturn Retrograde Survival Kit' PDF. Push for Shani Puja bookings.",
-                "trafficDriver": "Maximum", "postTypeMix": ["PDF Lead Magnet", "Blog", "YouTube Video"],
-                "topKeywords": [{ "rank": 1, "keyword": "Saturn retrograde July 27 2026", "powerScore": 100,
+                { "rank": 8, "keyword": "Rahu in Aquarius", "powerScore": 84,
+                    "pros": "Detailed placement." },
+                { "rank": 9, "keyword": "Rahu grah shanti", "powerScore": 82,
+                    "pros": "Puja." },
+                { "rank": 10, "keyword": "Rahu mantra", "powerScore": 80,
+                    "pros": "Audio." }
+            ]
+        }, {
+            "date": "2026-07-27",
+            "day": "Monday",
+            "event": "Saturn Retrograde in Pisces begins",
+            "campaignTheme": "Karma & Long-term Discipline",
+            "strategySummary": "Create a 'Saturn Retrograde Survival Kit' PDF. Push for Shani Puja bookings.",
+            "trafficDriver": "Maximum",
+            "postTypeMix": ["PDF Lead Magnet", "Blog", "YouTube Video"],
+            "topKeywords": [{ "rank": 1, "keyword": "Saturn retrograde July 27 2026", "powerScore": 100,
                     "pros": "Maximum fear; highest conversion." },
-                { "rank": 2, "keyword": "Shani vakri 2026", "powerScore": 98, "pros": "Native; panic." },
-                { "rank": 3, "keyword": "Saturn retrograde Pisces", "powerScore": 96, "pros": "Specific sign." },
-                { "rank": 4, "keyword": "Shani grah ke upay", "powerScore": 94, "pros": "Remedies; donations." },
-                { "rank": 5, "keyword": "Sade Sati 2026", "powerScore": 92, "pros": "Fear-based; huge traffic." },
-                { "rank": 6, "keyword": "Shani Chalisa", "powerScore": 90, "pros": "10+ min watch time." },
+                { "rank": 2, "keyword": "Shani vakri 2026", "powerScore": 98,
+                    "pros": "Native; panic." },
+                { "rank": 3, "keyword": "Saturn retrograde Pisces", "powerScore": 96,
+                    "pros": "Specific sign." },
+                { "rank": 4, "keyword": "Shani grah ke upay", "powerScore": 94,
+                    "pros": "Remedies; donations." },
+                { "rank": 5, "keyword": "Sade Sati 2026", "powerScore": 92,
+                    "pros": "Fear-based; huge traffic." },
+                { "rank": 6, "keyword": "Shani Chalisa", "powerScore": 90,
+                    "pros": "10+ min watch time." },
                 { "rank": 7, "keyword": "Saturn retrograde effects", "powerScore": 88,
                     "pros": "Personalized posts." },
-                { "rank": 8, "keyword": "Pisces zodiac 2026", "powerScore": 85, "pros": "Sign predictions." },
-                { "rank": 9, "keyword": "Shani grah shanti", "powerScore": 83, "pros": "Puja booking." },
-                { "rank": 10, "keyword": "Shani mantra", "powerScore": 81, "pros": "Soothing content." }] },
-            { "date": "2026-07-28", "day": "Tuesday", "event": "Purnima Tithi Begins (6:18 PM)",
-                "campaignTheme": "Full Moon Prep & Guru Purnima Eve",
-                "strategySummary": "Send a 'Full Moon Release Ritual' guide. Final setup for Guru Purnima Live.",
-                "trafficDriver": "High", "postTypeMix": ["WhatsApp Broadcast", "Instagram Story",
-                    "Facebook Event Reminder"
-                ],
-                "topKeywords": [{ "rank": 1, "keyword": "Purnima July 2026", "powerScore": 94,
+                { "rank": 8, "keyword": "Pisces zodiac 2026", "powerScore": 85,
+                    "pros": "Sign predictions." },
+                { "rank": 9, "keyword": "Shani grah shanti", "powerScore": 83,
+                    "pros": "Puja booking." },
+                { "rank": 10, "keyword": "Shani mantra", "powerScore": 81,
+                    "pros": "Soothing content." }
+            ]
+        }, {
+            "date": "2026-07-28",
+            "day": "Tuesday",
+            "event": "Purnima Tithi Begins (6:18 PM)",
+            "campaignTheme": "Full Moon Prep & Guru Purnima Eve",
+            "strategySummary": "Send a 'Full Moon Release Ritual' guide. Final setup for Guru Purnima Live.",
+            "trafficDriver": "High",
+            "postTypeMix": ["WhatsApp Broadcast", "Instagram Story", "Facebook Event Reminder"],
+            "topKeywords": [{ "rank": 1, "keyword": "Purnima July 2026", "powerScore": 94,
                     "pros": "Monthly high volume." },
-                { "rank": 2, "keyword": "Guru Purnima tithi", "powerScore": 92, "pros": "Pre-event search." },
-                { "rank": 3, "keyword": "Ashadha Purnima", "powerScore": 90, "pros": "Specific." },
-                { "rank": 4, "keyword": "Purnima vrat", "powerScore": 88, "pros": "Procedure." },
-                { "rank": 5, "keyword": "Full moon significance", "powerScore": 85, "pros": "Educational." },
-                { "rank": 6, "keyword": "Chandra puja", "powerScore": 83, "pros": "Moon worship." },
-                { "rank": 7, "keyword": "Purnima date 2026", "powerScore": 81, "pros": "Date list." },
-                { "rank": 8, "keyword": "Purnima 2026", "powerScore": 79, "pros": "General." },
-                { "rank": 9, "keyword": "Chandra grah", "powerScore": 77, "pros": "Astro." },
-                { "rank": 10, "keyword": "Full moon astrology", "powerScore": 75, "pros": "Wellness." }] },
-            { "date": "2026-07-29", "day": "Wednesday", "event": "GURU PURNIMA + Full Moon (Aquarius)",
-                "campaignTheme": "THE BIG DAY - HIGHEST CONVERSION",
-                "strategySummary": "HOST THE GLOBAL MAHA JYOTISH CAMP LIVE. Full Guru puja, readings, and immediate booking offers.",
-                "trafficDriver": "Maximum", "postTypeMix": ["YouTube LIVE", "Instagram LIVE", "Facebook LIVE",
-                    "WhatsApp Broadcast"
-                ],
-                "topKeywords": [{ "rank": 1, "keyword": "Guru Purnima 2026", "powerScore": 100,
+                { "rank": 2, "keyword": "Guru Purnima tithi", "powerScore": 92,
+                    "pros": "Pre-event search." },
+                { "rank": 3, "keyword": "Ashadha Purnima", "powerScore": 90,
+                    "pros": "Specific." },
+                { "rank": 4, "keyword": "Purnima vrat", "powerScore": 88,
+                    "pros": "Procedure." },
+                { "rank": 5, "keyword": "Full moon significance", "powerScore": 85,
+                    "pros": "Educational." },
+                { "rank": 6, "keyword": "Chandra puja", "powerScore": 83,
+                    "pros": "Moon worship." },
+                { "rank": 7, "keyword": "Purnima date 2026", "powerScore": 81,
+                    "pros": "Date list." },
+                { "rank": 8, "keyword": "Purnima 2026", "powerScore": 79,
+                    "pros": "General." },
+                { "rank": 9, "keyword": "Chandra grah", "powerScore": 77,
+                    "pros": "Astro." },
+                { "rank": 10, "keyword": "Full moon astrology", "powerScore": 75,
+                    "pros": "Wellness." }
+            ]
+        }, {
+            "date": "2026-07-29",
+            "day": "Wednesday",
+            "event": "GURU PURNIMA + Full Moon (Aquarius)",
+            "campaignTheme": "THE BIG DAY - HIGHEST CONVERSION",
+            "strategySummary": "HOST THE GLOBAL MAHA JYOTISH CAMP LIVE. Full Guru puja, readings, and immediate booking offers.",
+            "trafficDriver": "Maximum",
+            "postTypeMix": ["YouTube LIVE", "Instagram LIVE", "Facebook LIVE", "WhatsApp Broadcast"],
+            "topKeywords": [{ "rank": 1, "keyword": "Guru Purnima 2026", "powerScore": 100,
                     "pros": "THE BIGGEST KEYWORD OF JULY." },
                 { "rank": 2, "keyword": "Guru Purnima puja muhurat", "powerScore": 99,
                     "pros": "Most asked question." },
-                { "rank": 3, "keyword": "Guru Purnima date", "powerScore": 97, "pros": "Exact date search." },
-                { "rank": 4, "keyword": "Vyasa Purnima", "powerScore": 95, "pros": "Alternate name." },
+                { "rank": 3, "keyword": "Guru Purnima date", "powerScore": 97,
+                    "pros": "Exact date search." },
+                { "rank": 4, "keyword": "Vyasa Purnima", "powerScore": 95,
+                    "pros": "Alternate name." },
                 { "rank": 5, "keyword": "Guru Purnima significance", "powerScore": 93,
                     "pros": "Educational/shared." },
-                { "rank": 6, "keyword": "Guru mantra", "powerScore": 92, "pros": "Most shared audio." },
-                { "rank": 7, "keyword": "Guru pooja vidhi", "powerScore": 91, "pros": "Highest CTR." },
-                { "rank": 8, "keyword": "Vyasa puja", "powerScore": 89, "pros": "Traditional." },
-                { "rank": 9, "keyword": "Guru blessings", "powerScore": 88, "pros": "Emotional share." },
+                { "rank": 6, "keyword": "Guru mantra", "powerScore": 92,
+                    "pros": "Most shared audio." },
+                { "rank": 7, "keyword": "Guru pooja vidhi", "powerScore": 91,
+                    "pros": "Highest CTR." },
+                { "rank": 8, "keyword": "Vyasa puja", "powerScore": 89,
+                    "pros": "Traditional." },
+                { "rank": 9, "keyword": "Guru blessings", "powerScore": 88,
+                    "pros": "Emotional share." },
                 { "rank": 10, "keyword": "Guru-shishya parampara", "powerScore": 85,
-                    "pros": "Cultural authority." }] },
-            { "date": "2026-07-30", "day": "Thursday", "event": "Sawan (Shravan) Month Begins",
-                "campaignTheme": "Month of Shiva Begins",
-                "strategySummary": "Launch '31 Days of Shiva' campaign. Post daily Shiva Chalisa verses.",
-                "trafficDriver": "Maximum", "postTypeMix": ["Blog", "Instagram Reel", "Facebook Group (Challenge)",
-                    "WhatsApp Daily Verse"
-                ],
-                "topKeywords": [{ "rank": 1, "keyword": "Sawan 2026 start", "powerScore": 99,
+                    "pros": "Cultural authority." }
+            ]
+        }, {
+            "date": "2026-07-30",
+            "day": "Thursday",
+            "event": "Sawan (Shravan) Month Begins",
+            "campaignTheme": "Month of Shiva Begins",
+            "strategySummary": "Launch '31 Days of Shiva' campaign. Post daily Shiva Chalisa verses.",
+            "trafficDriver": "Maximum",
+            "postTypeMix": ["Blog", "Instagram Reel", "Facebook Group (Challenge)", "WhatsApp Daily Verse"],
+            "topKeywords": [{ "rank": 1, "keyword": "Sawan 2026 start", "powerScore": 99,
                     "pros": "Holiest month; 30-day daily search." },
-                { "rank": 2, "keyword": "Shravan month 2026", "powerScore": 97, "pros": "Sanskrit name." },
+                { "rank": 2, "keyword": "Shravan month 2026", "powerScore": 97,
+                    "pros": "Sanskrit name." },
                 { "rank": 3, "keyword": "Sawan somwar 2026 dates", "powerScore": 95,
                     "pros": "Crucial for fasting." },
                 { "rank": 4, "keyword": "Shravan mahina significance", "powerScore": 93,
                     "pros": "Educational." },
-                { "rank": 5, "keyword": "Sawan somwar vrat", "powerScore": 91, "pros": "Procedure." },
-                { "rank": 6, "keyword": "Lord Shiva puja", "powerScore": 89, "pros": "Daily commercial." },
-                { "rank": 7, "keyword": "Sawan 2026 calendar", "powerScore": 87, "pros": "Downloadable." },
-                { "rank": 8, "keyword": "Shravan 2026", "powerScore": 85, "pros": "Year-specific." },
-                { "rank": 9, "keyword": "Shiva mantra", "powerScore": 83, "pros": "Daily chanting." },
-                { "rank": 10, "keyword": "Sawan month", "powerScore": 80, "pros": "Month-long pillar." }] },
-            { "date": "2026-07-31", "day": "Friday", "event": "Sawan Day 2 + Month End",
-                "campaignTheme": "Wrap-up & August Preview",
-                "strategySummary": "Publish 'August 2026 Horoscope' to capture early search traffic. Send monthly newsletter.",
-                "trafficDriver": "High", "postTypeMix": ["Blog", "Email Newsletter", "YouTube Video"],
-                "topKeywords": [{ "rank": 1, "keyword": "Monthly horoscope August 2026", "powerScore": 96,
+                { "rank": 5, "keyword": "Sawan somwar vrat", "powerScore": 91,
+                    "pros": "Procedure." },
+                { "rank": 6, "keyword": "Lord Shiva puja", "powerScore": 89,
+                    "pros": "Daily commercial." },
+                { "rank": 7, "keyword": "Sawan 2026 calendar", "powerScore": 87,
+                    "pros": "Downloadable." },
+                { "rank": 8, "keyword": "Shravan 2026", "powerScore": 85,
+                    "pros": "Year-specific." },
+                { "rank": 9, "keyword": "Shiva mantra", "powerScore": 83,
+                    "pros": "Daily chanting." },
+                { "rank": 10, "keyword": "Sawan month", "powerScore": 80,
+                    "pros": "Month-long pillar." }
+            ]
+        }, {
+            "date": "2026-07-31",
+            "day": "Friday",
+            "event": "Sawan Day 2 + Month End",
+            "campaignTheme": "Wrap-up & August Preview",
+            "strategySummary": "Publish 'August 2026 Horoscope' to capture early search traffic. Send monthly newsletter.",
+            "trafficDriver": "High",
+            "postTypeMix": ["Blog", "Email Newsletter", "YouTube Video"],
+            "topKeywords": [{ "rank": 1, "keyword": "Monthly horoscope August 2026", "powerScore": 96,
                     "pros": "First to publish; ranks instantly." },
-                { "rank": 2, "keyword": "August rashi bhavishya", "powerScore": 93, "pros": "Mass appeal." },
-                { "rank": 3, "keyword": "Shravan somwar vidhi", "powerScore": 90, "pros": "Procedural." },
-                { "rank": 4, "keyword": "Sawan special puja", "powerScore": 88, "pros": "Specific to month." },
-                { "rank": 5, "keyword": "Mahadev aarti", "powerScore": 86, "pros": "Evergreen." },
-                { "rank": 6, "keyword": "Monthly astrology wrap", "powerScore": 84, "pros": "Summary; shareable." },
+                { "rank": 2, "keyword": "August rashi bhavishya", "powerScore": 93,
+                    "pros": "Mass appeal." },
+                { "rank": 3, "keyword": "Shravan somwar vidhi", "powerScore": 90,
+                    "pros": "Procedural." },
+                { "rank": 4, "keyword": "Sawan special puja", "powerScore": 88,
+                    "pros": "Specific to month." },
+                { "rank": 5, "keyword": "Mahadev aarti", "powerScore": 86,
+                    "pros": "Evergreen." },
+                { "rank": 6, "keyword": "Monthly astrology wrap", "powerScore": 84,
+                    "pros": "Summary; shareable." },
                 { "rank": 7, "keyword": "August 2026 horoscope", "powerScore": 82,
                     "pros": "Captures early planners." },
-                { "rank": 8, "keyword": "Sawan 2026", "powerScore": 80, "pros": "Ongoing." },
-                { "rank": 9, "keyword": "Shiva bhakti", "powerScore": 78, "pros": "Emotional." },
+                { "rank": 8, "keyword": "Sawan 2026", "powerScore": 80,
+                    "pros": "Ongoing." },
+                { "rank": 9, "keyword": "Shiva bhakti", "powerScore": 78,
+                    "pros": "Emotional." },
                 { "rank": 10, "keyword": "July month end astrology", "powerScore": 76,
-                    "pros": "Reflection." }] }
-        ];
+                    "pros": "Reflection." }
+            ]
+        }];
 
         // ============================================================
-        //  STATE
+        // STATE
         // ============================================================
         let selectedDate = '2026-07-29';
-        let completedTasks = JSON.parse(localStorage.getItem('bnkjss_tasks') || '{}');
-        let expandedKeywords = JSON.parse(localStorage.getItem('bnkjss_expanded') || '{}');
+        let completedTasks = JSON.parse(localStorage.getItem('bnkjss_tasks_mobile') || '{}');
+        let expandedKeywords = JSON.parse(localStorage.getItem('bnkjss_expanded_mobile') || '{}');
         let tutorialStep = 0;
         const TUTORIAL_STEPS = [
             { title: '🌌 The Cosmic Calendar',
-                desc: 'Navigate the full month of July 2026. Dates are color‑coded by traffic potential. Gold = Hottest Day. Tap a date to change strategy.' },
+                desc: 'Tap any date to load its strategy. Gold = Hottest Day (Guru Purnima).' },
             { title: '📜 Today\'s Divine Dispatch',
-                desc: 'Your #1 priority for today. Shows the exact event, strategy, and top 3 Power Keywords that bring instant traffic.' },
+                desc: 'Your #1 priority for today: the event, strategy, and top 3 Power Keywords.' },
             { title: '📋 The Vidhi Blueprint',
-                desc: 'We do not guess. Here is the exact Post Type Mix. Check them off as you complete them to build your Karma.' },
+                desc: 'Check off each format as you complete it. Your Karma Score updates instantly.' },
             { title: '🗝️ Shabda Treasury',
-                desc: 'The 10 most powerful keywords. Tap the expander to read the hidden Gyan on why the keyword ranks.' },
+                desc: 'Tap a keyword to reveal the hidden Gyan — why it ranks and how to use it.' },
             { title: '⚡ Karma Tracker',
-                desc: 'Track your daily progress. 100% means you are perfectly aligned. You are now ready to conquer the digital universe!' }
+                desc: '100% = Cosmic Alignment. You\'re ready to conquer the digital universe!' }
         ];
 
         // ============================================================
-        //  HELPERS
+        // HELPERS
         // ============================================================
         function getData(date) {
             return DAILY_DATA.find(d => d.date === date) || DAILY_DATA[0];
         }
 
         function getTrafficClass(level) {
-            const map = {
-                'Low': 'traffic-low',
-                'Medium': 'traffic-medium',
-                'High': 'traffic-high',
-                'Very High': 'traffic-very-high',
-                'Maximum': 'traffic-maximum'
-            };
+            const map = { 'Low': 'traffic-low', 'Medium': 'traffic-medium', 'High': 'traffic-high',
+                'Very High': 'traffic-very-high', 'Maximum': 'traffic-maximum' };
             return map[level] || 'traffic-low';
         }
 
-        function getTrafficLabel(level) {
-            const map = {
-                'Low': 'Low',
-                'Medium': 'Medium',
-                'High': 'High',
-                'Very High': 'V.High',
-                'Maximum': 'Max ✦'
-            };
-            return map[level] || level;
-        }
+        function getActiveData() { return getData(selectedDate); }
 
-        function getActiveData() {
-            return getData(selectedDate);
-        }
-
-        function getCompletedForDate(date) {
-            return completedTasks[date] || [];
-        }
+        function getCompletedForDate(date) { return completedTasks[date] || []; }
 
         function toggleTask(date, index) {
             const key = date;
@@ -1835,20 +2172,18 @@
             } else {
                 completedTasks[key] = next;
             }
-            localStorage.setItem('bnkjss_tasks', JSON.stringify(completedTasks));
+            localStorage.setItem('bnkjss_tasks_mobile', JSON.stringify(completedTasks));
             renderAll();
         }
 
         function toggleExpand(idx) {
             const key = String(idx);
             expandedKeywords[key] = !expandedKeywords[key];
-            localStorage.setItem('bnkjss_expanded', JSON.stringify(expandedKeywords));
+            localStorage.setItem('bnkjss_expanded_mobile', JSON.stringify(expandedKeywords));
             renderTreasury();
         }
 
-        function isExpanded(idx) {
-            return !!expandedKeywords[String(idx)];
-        }
+        function isExpanded(idx) { return !!expandedKeywords[String(idx)]; }
 
         function calculateKarma(date) {
             const data = getData(date);
@@ -1858,23 +2193,18 @@
         }
 
         // ============================================================
-        //  RENDER FUNCTIONS
+        // RENDER FUNCTIONS
         // ============================================================
-
         function renderCalendar() {
             const grid = document.getElementById('calendarGrid');
             const days = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
-            const blanks = [null, null, null]; // July 1 2026 is Wednesday → 3 blanks
+            const blanks = [null, null, null];
 
             let html = '';
-            days.forEach(d => {
-                html += `<div class="day-label">${d}</div>`;
-            });
+            days.forEach(d => { html += `<div class="day-label">${d}</div>`; });
 
             const allCells = [...blanks];
-            for (let i = 1; i <= 31; i++) {
-                allCells.push(i);
-            }
+            for (let i = 1; i <= 31; i++) allCells.push(i);
 
             allCells.forEach((day, idx) => {
                 if (day === null) {
@@ -1894,16 +2224,10 @@
 
             grid.innerHTML = html;
 
-            // attach events
             grid.querySelectorAll('.calendar-cell[data-date]').forEach(el => {
                 el.addEventListener('click', () => {
                     selectedDate = el.dataset.date;
                     renderAll();
-                    // auto-advance tutorial if step 1
-                    if (tutorialStep === 0) {
-                        // if first time, show tutorial
-                        showTutorial(1);
-                    }
                 });
                 el.addEventListener('keydown', (e) => {
                     if (e.key === 'Enter' || e.key === ' ') {
@@ -1917,7 +2241,8 @@
 
         function renderHero() {
             const data = getActiveData();
-            document.getElementById('heroDay').textContent = `${data.day}, ${data.date}`;
+            document.getElementById('headerDate').textContent = data.date.slice(5);
+            document.getElementById('heroDay').textContent = `${data.day.slice(0, 3)}, ${data.date.slice(5)}`;
             document.getElementById('heroTheme').textContent = data.campaignTheme;
             document.getElementById('heroEvent').textContent = data.event;
             document.getElementById('heroStrategy').textContent = `"${data.strategySummary}"`;
@@ -1928,24 +2253,23 @@
             top3.forEach(kw => {
                 const pct = Math.min(kw.powerScore, 100);
                 html += `
-                    <div class="hero-kw-item">
-                        <span class="kw-name">${kw.keyword}</span>
-                        <div class="kw-bar-wrap">
-                            <div class="kw-bar"><div class="fill" style="width:${pct}%;"></div></div>
-                            <span class="kw-score">${kw.powerScore}</span>
-                        </div>
-                    </div>
-                `;
+                            <div class="hero-kw-item">
+                                <span class="kw-name">${kw.keyword}</span>
+                                <div class="kw-bar-wrap">
+                                    <div class="kw-bar"><div class="fill" style="width:${pct}%;"></div></div>
+                                    <span class="kw-score">${kw.powerScore}</span>
+                                </div>
+                            </div>
+                        `;
             });
             container.innerHTML = html;
         }
 
         function renderVidhi() {
             const data = getActiveData();
-            const level = data.trafficDriver;
             const el = document.getElementById('trafficLevel');
-            el.textContent = getTrafficLabel(level);
-            el.className = 'level' + (level === 'Maximum' ? ' max' : '');
+            el.textContent = data.trafficDriver;
+            el.className = 'level' + (data.trafficDriver === 'Maximum' ? ' max' : '');
 
             const tasks = getCompletedForDate(selectedDate);
             const list = document.getElementById('taskList');
@@ -1953,19 +2277,17 @@
             data.postTypeMix.forEach((task, idx) => {
                 const done = tasks.includes(idx);
                 html += `
-                    <div class="task-item ${done ? 'done' : ''}" data-index="${idx}" role="button" tabindex="0">
-                        <span>${task}</span>
-                        <span class="check">${done ? '✓' : ''}</span>
-                    </div>
-                `;
+                            <div class="task-item ${done ? 'done' : ''}" data-index="${idx}" role="button" tabindex="0">
+                                <span>${task}</span>
+                                <span class="check">${done ? '✓' : ''}</span>
+                            </div>
+                        `;
             });
             list.innerHTML = html;
 
             list.querySelectorAll('.task-item').forEach(el => {
                 const idx = parseInt(el.dataset.index, 10);
-                el.addEventListener('click', () => {
-                    toggleTask(selectedDate, idx);
-                });
+                el.addEventListener('click', () => { toggleTask(selectedDate, idx); });
                 el.addEventListener('keydown', (e) => {
                     if (e.key === 'Enter' || e.key === ' ') {
                         e.preventDefault();
@@ -1978,8 +2300,7 @@
         function renderTreasury() {
             const data = getActiveData();
             const list = document.getElementById('treasuryList');
-            const count = document.getElementById('kwCount');
-            count.textContent = `${data.topKeywords.length} terms`;
+            document.getElementById('kwCount').textContent = `${data.topKeywords.length} terms`;
 
             let html = '';
             data.topKeywords.forEach((kw, idx) => {
@@ -1987,30 +2308,28 @@
                 const expanded = isExpanded(idx);
                 const pct = Math.min(kw.powerScore, 100);
                 html += `
-                    <div class="treasury-item" data-index="${idx}">
-                        <div class="ti-row">
-                            <span class="ti-rank ${isTop ? 'top' : ''}">#${kw.rank}</span>
-                            <span class="ti-keyword ${isTop ? 'top' : ''}">${kw.keyword}</span>
-                            <div class="ti-bar-wrap">
-                                <div class="ti-bar"><div class="fill ${isTop ? '' : 'orange'}" style="width:${pct}%;"></div></div>
-                                <span class="ti-score">${kw.powerScore}</span>
+                            <div class="treasury-item" data-index="${idx}">
+                                <div class="ti-row">
+                                    <span class="ti-rank ${isTop ? 'top' : ''}">#${kw.rank}</span>
+                                    <span class="ti-keyword ${isTop ? 'top' : ''}">${kw.keyword}</span>
+                                    <div class="ti-bar-wrap">
+                                        <div class="ti-bar"><div class="fill ${isTop ? '' : 'orange'}" style="width:${pct}%;"></div></div>
+                                        <span class="ti-score">${kw.powerScore}</span>
+                                    </div>
+                                    <span class="ti-chevron ${expanded ? 'open' : ''}">▾</span>
+                                </div>
+                                <div class="ti-pros ${expanded ? 'open' : ''}">
+                                    <div class="pros-inner"><strong>Gyan:</strong> ${kw.pros}</div>
+                                </div>
                             </div>
-                            <span class="ti-chevron ${expanded ? 'open' : ''}">▾</span>
-                        </div>
-                        <div class="ti-pros ${expanded ? 'open' : ''}">
-                            <div class="pros-inner"><strong>Gyan:</strong> ${kw.pros}</div>
-                        </div>
-                    </div>
-                `;
+                        `;
             });
             list.innerHTML = html;
 
             list.querySelectorAll('.treasury-item').forEach(el => {
                 const idx = parseInt(el.dataset.index, 10);
                 const row = el.querySelector('.ti-row');
-                row.addEventListener('click', () => {
-                    toggleExpand(idx);
-                });
+                row.addEventListener('click', () => { toggleExpand(idx); });
                 row.addEventListener('keydown', (e) => {
                     if (e.key === 'Enter' || e.key === ' ') {
                         e.preventDefault();
@@ -2024,21 +2343,19 @@
 
         function renderKarma() {
             const pct = calculateKarma(selectedDate);
-            const fill = document.getElementById('karmaFill');
-            const label = document.getElementById('karmaPctLabel');
-            const big = document.getElementById('karmaPctBig');
+            document.getElementById('karmaFill').style.width = `${pct}%`;
+            document.getElementById('karmaPctLabel').textContent = `${pct}% Complete`;
+            document.getElementById('karmaPctBig').textContent = `${pct}%`;
             const status = document.getElementById('karmaStatus');
-
-            fill.style.width = `${pct}%`;
-            label.textContent = `${pct}% Complete`;
-            big.textContent = `${pct}%`;
-
             if (pct === 100) {
-                status.textContent = 'Cosmic Alignment Achieved 🙏';
+                status.textContent = 'Cosmic Alignment 🙏';
+                status.className = 'msg done';
             } else if (pct >= 50) {
-                status.textContent = 'Good progress, keep going!';
+                status.textContent = 'Keep going!';
+                status.className = 'msg';
             } else {
                 status.textContent = 'Execute Vidhi to progress';
+                status.className = 'msg';
             }
         }
 
@@ -2047,57 +2364,46 @@
             renderVidhi();
             renderTreasury();
             renderKarma();
-            // calendar re-render is expensive, only re-draw if needed (but we keep it in sync)
-            // we re-render calendar on date change to update highlights
             renderCalendar();
         }
 
         // ============================================================
-        //  TUTORIAL
+        // TUTORIAL
         // ============================================================
         function showTutorial(step) {
             tutorialStep = step;
             const overlay = document.getElementById('tutorialOverlay');
-            const title = document.getElementById('tutorialTitle');
-            const desc = document.getElementById('tutorialDesc');
-            const stepLabel = document.getElementById('tutorialStep');
-
             if (step === 0) {
                 overlay.classList.remove('active');
                 return;
             }
-
             const idx = step - 1;
             const s = TUTORIAL_STEPS[idx];
-            title.textContent = s.title;
-            desc.textContent = s.desc;
-            stepLabel.textContent = `Step ${step} of ${TUTORIAL_STEPS.length}`;
+            document.getElementById('tutorialTitle').textContent = s.title;
+            document.getElementById('tutorialDesc').textContent = s.desc;
+            document.getElementById('tutorialStep').textContent = `Step ${step} of ${TUTORIAL_STEPS.length}`;
             overlay.classList.add('active');
         }
 
         function closeTutorial() {
             tutorialStep = 0;
             document.getElementById('tutorialOverlay').classList.remove('active');
-            localStorage.setItem('bnkjss_tutorial_seen', 'true');
+            localStorage.setItem('bnkjss_tutorial_seen_mobile', 'true');
         }
 
         function nextTutorial() {
-            if (tutorialStep >= TUTORIAL_STEPS.length) {
-                closeTutorial();
-                return;
-            }
+            if (tutorialStep >= TUTORIAL_STEPS.length) { closeTutorial(); return; }
             showTutorial(tutorialStep + 1);
         }
 
         // ============================================================
-        //  INIT
+        // INIT
         // ============================================================
         function init() {
-            // set today's date if within July 2026, else use default
             const now = new Date();
-            const y = now.getFullYear();
-            const m = now.getMonth();
-            const d = now.getDate();
+            const y = now.getFullYear(),
+                m = now.getMonth(),
+                d = now.getDate();
             if (y === 2026 && m === 6 && d >= 1 && d <= 31) {
                 const candidate = `2026-07-${String(d).padStart(2, '0')}`;
                 if (DAILY_DATA.some(item => item.date === candidate)) {
@@ -2107,47 +2413,22 @@
 
             renderAll();
 
-            // tutorial: show if first visit
-            const seen = localStorage.getItem('bnkjss_tutorial_seen');
+            const seen = localStorage.getItem('bnkjss_tutorial_seen_mobile');
             if (!seen) {
-                setTimeout(() => {
-                    showTutorial(1);
-                }, 600);
+                setTimeout(() => { showTutorial(1); }, 500);
             }
 
-            // event listeners for tutorial
             document.getElementById('tutorialNext').addEventListener('click', nextTutorial);
             document.getElementById('tutorialSkip').addEventListener('click', closeTutorial);
-
-            // close on overlay click (background)
             document.getElementById('tutorialOverlay').addEventListener('click', (e) => {
-                if (e.target === e.currentTarget) {
-                    closeTutorial();
-                }
+                if (e.target === e.currentTarget) closeTutorial();
             });
-
-            // keyboard support for tutorial
             document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && tutorialStep > 0) {
-                    closeTutorial();
-                }
-                if (e.key === 'Enter' && tutorialStep > 0) {
-                    nextTutorial();
-                }
+                if (e.key === 'Escape' && tutorialStep > 0) closeTutorial();
+                if (e.key === 'Enter' && tutorialStep > 0) nextTutorial();
             });
 
-            // responsive: re-render on resize (debounced)
-            let resizeTimer;
-            window.addEventListener('resize', () => {
-                clearTimeout(resizeTimer);
-                resizeTimer = setTimeout(() => {
-                    // just re-render treasury which has responsive elements
-                    renderTreasury();
-                }, 200);
-            });
-
-            console.log('🙏 BNKJSS AstroSeva Command Center · High-End Edition loaded');
-            console.log(`📅 Today: ${selectedDate} · ${getActiveData().event}`);
+            console.log('🙏 BNKJSS AstroSeva · Mobile High-End loaded');
         }
 
         document.addEventListener('DOMContentLoaded', init);
